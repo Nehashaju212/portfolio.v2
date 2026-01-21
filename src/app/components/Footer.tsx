@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
-import svgPaths from "../../imports/svg-fcov86nyay";
+import { Mail, Linkedin } from 'lucide-react';
+
 import img1 from "../../assets/1.png";
 import img2 from "../../assets/12.png";
 import img3 from "../../assets/6.png";
 
-export function Contact() {
+export function Footer() {
   return (
-    <section id="contact" className="pt-20 md:pt-32 pb-0 px-4 bg-white overflow-hidden">
+    <section id="contact" className="border-t border-gray-100 pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden">
       <motion.div
         className="max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
@@ -33,14 +34,15 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <button
-            className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105 active:scale-95"
+          <a
+            href="mailto:nehashaju212@gmail.com"
+            className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105 active:scale-95 inline-block"
             style={{
               background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
             }}
           >
             let's talk.
-          </button>
+          </a>
         </motion.div>
       </motion.div>
 
@@ -132,25 +134,47 @@ export function Contact() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4 shrink-0">
-            {[1, 2, 3].map((i) => (
-              <motion.a
-                key={i}
-                href="#"
-                className="text-black hover:opacity-70 transition-opacity"
-                whileHover={{ scale: 1.1 }}
-                aria-label="Social media link"
+            <motion.a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:opacity-70 transition-opacity"
+              whileHover={{ scale: 1.1 }}
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-10 h-10" strokeWidth={1.5} />
+            </motion.a>
+            <motion.a
+              href="mailto:nehashaju212@gmail.com"
+              className="text-black hover:opacity-70 transition-opacity"
+              whileHover={{ scale: 1.1 }}
+              aria-label="Email"
+            >
+              <Mail className="w-10 h-10" strokeWidth={1.5} />
+            </motion.a>
+            <motion.a
+              href="https://wa.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:opacity-70 transition-opacity"
+              whileHover={{ scale: 1.1 }}
+              aria-label="WhatsApp"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-message-circle"
               >
-                <svg className="w-10 h-10" fill="none" viewBox="0 0 40 40">
-                  <path
-                    d={svgPaths.p30e5d700}
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="3.5"
-                  />
-                </svg>
-              </motion.a>
-            ))}
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+              </svg>
+            </motion.a>
           </div>
         </div>
 
@@ -207,25 +231,47 @@ export function Contact() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4 md:gap-6">
-            {[1, 2, 3].map((i) => (
-              <motion.a
-                key={i}
-                href="#"
-                className="text-black hover:opacity-70 transition-opacity"
-                whileHover={{ scale: 1.1 }}
-                aria-label="Social media link"
+            <motion.a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:opacity-70 transition-opacity"
+              whileHover={{ scale: 1.1 }}
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-10 h-10" strokeWidth={1.5} />
+            </motion.a>
+            <motion.a
+              href="mailto:nehashaju212@gmail.com"
+              className="text-black hover:opacity-70 transition-opacity"
+              whileHover={{ scale: 1.1 }}
+              aria-label="Email"
+            >
+              <Mail className="w-10 h-10" strokeWidth={1.5} />
+            </motion.a>
+            <motion.a
+              href="https://wa.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:opacity-70 transition-opacity"
+              whileHover={{ scale: 1.1 }}
+              aria-label="WhatsApp"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-message-circle"
               >
-                <svg className="w-10 h-10" fill="none" viewBox="0 0 40 40">
-                  <path
-                    d={svgPaths.p30e5d700}
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="3.5"
-                  />
-                </svg>
-              </motion.a>
-            ))}
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+              </svg>
+            </motion.a>
           </div>
         </div>
       </motion.div>

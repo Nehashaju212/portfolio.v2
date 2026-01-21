@@ -15,8 +15,9 @@ import img12 from "../../assets/12.png";
 import img13 from "../../assets/13.png";
 import imgCap from "../../assets/cap.png";
 import imgThambu from "../../assets/thambu.png";
-import imgBall from "../../assets/ball.png";
-import imgSmile from "../../assets/smile.png";
+import imgFilm from "../../assets/film.png";
+import imgPaint from "../../assets/paint.png";
+import imgCam from "../../assets/cam.png";
 
 // Creating a set of exactly 12 images
 const baseImages = [img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img3];
@@ -33,11 +34,11 @@ export function About() {
   });
 
   // --- DESIGN PRECISION SETTINGS ---
-  const perspectiveValue = "1000px";
+  const perspectiveValue = "600px";
   // Reducing the radius brings the 12 cards closer together mathematically
-  const radius = -750;
+  const radius = -650;
   // Increasing width to 380px makes them nearly touch on a 750 radius
-  const cardWidth = 380;
+  const cardWidth = 300;
   const angleStep = 360 / images.length;
 
   useAnimationFrame((t, delta) => {
@@ -55,7 +56,7 @@ export function About() {
   return (
     <section id="about" className="bg-white py-24 overflow-hidden select-none">
       {/* HEADER SECTION */}
-      <div className="max-w-4xl mx-auto text-center px-6 mb-0">
+      <div className="max-w-4xl mx-auto text-center px-6 mb-20">
         <h2 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-black">
           <span className="font-['Red_Hat_Display'] font-medium">A little about </span>
           <span className="font-['Playfair_Display'] italic font-medium">me.</span>
@@ -69,7 +70,7 @@ export function About() {
 
       {/* 3D SCENE */}
       <div
-        className="relative h-[700px] w-full flex items-center justify-center cursor-grab active:cursor-grabbing -mt-32"
+        className="relative h-[500px] w-full flex items-center justify-center cursor-grab active:cursor-grabbing -mt-32"
         style={{ perspective: perspectiveValue }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -95,7 +96,7 @@ export function About() {
                 className="absolute"
                 style={{
                   width: `${cardWidth}px`,
-                  height: "500px",
+                  height: "400px",
                   // No padding = edges are determined by cardWidth
                   transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
                   backfaceVisibility: "hidden",
@@ -226,37 +227,64 @@ export function About() {
                 <span className="font-['Playfair_Display'] italic font-medium">syllabus.</span>
               </h3>
 
-              <div className="space-y-8 max-w-2xl mx-auto text-left md:text-center">
-                <div>
-                  <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Senior Mentor</h4>
-                  <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                    IEDC Sahrdaya
-                  </p>
-                  <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">june 2025 - present</p>
-                </div>
+              <div className="relative max-w-2xl mx-auto">
+                {/* Floating Images */}
+                <motion.img
+                  animate={{ y: [0, -15, 0], rotate: -15 }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  src={imgFilm}
+                  alt=""
+                  className="absolute -left-16 top-0 w-24 h-24 object-contain opacity-100 z-0 hidden md:block"
+                />
 
-                <div>
-                  <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Women in Computing</h4>
-                  <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                    IEEE Sahrdaya
-                  </p>
-                  <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">november 2023 - november 2024</p>
-                </div>
+                <motion.img
+                  animate={{ y: [0, -20, 0], rotate: 15 }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  src={imgPaint}
+                  alt=""
+                  className="absolute -right-20 top-1/3 w-28 h-28 object-contain opacity-100 z-0 hidden md:block"
+                />
 
-                <div>
-                  <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Outreach Lead</h4>
-                  <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                    TinkerHub SCET
-                  </p>
-                  <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">july 2024 - july 2025</p>
-                </div>
+                <motion.img
+                  animate={{ y: [0, -15, 0], rotate: -10 }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  src={imgCam}
+                  alt=""
+                  className="absolute -left-10 bottom-10 w-32 h-32 object-contain opacity-100 z-0 hidden md:block"
+                />
 
-                <div>
-                  <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">poster designer</h4>
-                  <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                    IEDC Sahrdaya
-                  </p>
-                  <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">july 2024 - jpresent</p>
+                <div className="space-y-8 relative z-10 text-left md:text-center">
+                  <div>
+                    <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Senior Mentor</h4>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
+                      IEDC Sahrdaya
+                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">june 2025 - present</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Women in Computing</h4>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
+                      IEEE Sahrdaya
+                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">november 2023 - november 2024</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Outreach Lead</h4>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
+                      TinkerHub SCET
+                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">july 2024 - july 2025</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">poster designer</h4>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
+                      IEDC Sahrdaya
+                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">july 2024 - jpresent</p>
+                  </div>
                 </div>
               </div>
             </div>

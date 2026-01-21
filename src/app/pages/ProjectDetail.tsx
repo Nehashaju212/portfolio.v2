@@ -2,10 +2,24 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
-import { Contact } from '@/app/components/Contact';
+import { Footer } from '@/app/components/Footer';
+
+
+
+interface Project {
+  title: string;
+  description: string;
+  fullDescription: string;
+  technologies: string[];
+  features: string[];
+  challenges: string;
+  outcome: string;
+  link?: string;
+  github?: string;
+}
 
 // Project data - expand this with your actual project details
-const projectsData = {
+const projectsData: Record<string, Project> = {
   'think-ai': {
     title: 'Think AI',
     description: 'An innovative AI-powered application that helps users think more creatively and solve complex problems.',
@@ -84,89 +98,77 @@ export function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header with Back Button */}
-      <motion.header
-        className="fixed top-0 left-0 right-0 z-50 px-6 py-6"
-        style={{
-          background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
-        }}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-white font-['Red_Hat_Display'] font-semibold text-lg hover:opacity-80 transition-opacity"
+    <div className="min-h-screen bg-white text-black font-['Red_Hat_Display']">
+      <div className="max-w-[1800px] mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        {/* Sidebar / Back Navigation - Occupies left columns */}
+        <div className="lg:col-span-2 lg:col-start-1 flex-shrink-0 mb-12 lg:mb-0 lg:sticky lg:top-32 h-fit">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-3 text-sm font-medium text-gray-500 hover:text-black transition-colors group"
           >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Portfolio
-          </button>
-          <h1 className="font-['Red_Hat_Display'] font-bold text-2xl text-white">
-            {project.title}
-          </h1>
+            <span className="transition-transform group-hover:-translate-x-1">&larr;</span>
+            back to portfolio
+          </Link>
         </div>
-      </motion.header>
 
-      {/* Main Content */}
-      <main className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Hero Section */}
+        {/* Main Content Area - Centered (8 cols, starting at 3) */}
+        <div className="lg:col-span-8 lg:col-start-3">
+          {/* Hero Image Block */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full aspect-[16/10] bg-[#d9d9d9] rounded-3xl mb-16 flex items-center justify-center overflow-hidden shadow-sm"
           >
-            <div className="bg-[#d6d6d6] rounded-2xl h-[400px] md:h-[500px] mb-8 overflow-hidden">
-              {/* Placeholder for project hero image */}
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="text-gray-500 font-['Red_Hat_Display'] text-xl">Project Image</p>
-              </div>
-            </div>
+            <p className="text-gray-400 text-xl font-medium">Project Image</p>
+          </motion.div>
 
-            <h1 className="text-5xl md:text-6xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
+          {/* Title & Short Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-20"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 text-black tracking-tight">
               {project.title}
             </h1>
-            <p className="text-lg md:text-xl font-['Red_Hat_Display'] font-medium text-gray-700 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-normal max-w-3xl">
               {project.description}
             </p>
           </motion.div>
 
-          {/* Overview */}
+          {/* Overview Section */}
           <motion.section
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-16"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
-              Overview
+            <h2 className="text-3xl md:text-5xl mb-6 text-black">
+              <span className="font-['Red_Hat_Display'] font-medium">what it's </span>
+              <span className="font-['Playfair_Display'] italic font-medium">about.</span>
             </h2>
-            <p className="text-lg md:text-xl font-['Red_Hat_Display'] font-medium text-gray-700 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl">
               {project.fullDescription}
             </p>
           </motion.section>
 
+
           {/* Technologies */}
           <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-16"
+            className="mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
-              Technologies Used
-            </h2>
-            <div className="flex flex-wrap gap-3">
+
+            <div className="flex flex-wrap gap-4">
               {project.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-6 py-3 rounded-full text-white font-['Red_Hat_Display'] font-semibold text-lg"
-                  style={{
-                    background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
-                  }}
+                  className="px-6 py-3 rounded-full border border-gray-200 text-gray-800 text-lg font-medium bg-gray-50"
                 >
                   {tech}
                 </span>
@@ -174,103 +176,66 @@ export function ProjectDetail() {
             </div>
           </motion.section>
 
-          {/* Key Features */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-16"
+          {/* Challenges */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
-              Key Features
-            </h2>
-            <ul className="space-y-4">
-              {project.features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-xl font-['Red_Hat_Display'] text-gray-700"
-                >
-                  <span className="text-2xl" style={{ color: 'rgb(178, 103, 241)' }}>•</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </motion.section>
-
-          {/* Challenges & Solutions */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
-              Challenges & Solutions
-            </h2>
-            <p className="text-lg md:text-xl font-['Red_Hat_Display'] font-medium text-gray-700 leading-relaxed">
-              {project.challenges}
-            </p>
-          </motion.section>
-
-          {/* Outcome */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
-              Outcome
-            </h2>
-            <p className="text-lg md:text-xl font-['Red_Hat_Display'] font-medium text-gray-700 leading-relaxed">
-              {project.outcome}
-            </p>
-          </motion.section>
+            <div>
+              <h2 className="text-3xl md:text-5xl mb-6 text-black">
+                <span className="font-['Red_Hat_Display'] font-medium">the </span>
+                <span className="font-['Playfair_Display'] italic font-medium">challenges.</span>
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {project.challenges}
+              </p>
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-5xl mb-6 text-black">
+                <span className="font-['Red_Hat_Display'] font-medium">the </span>
+                <span className="font-['Playfair_Display'] italic font-medium">outcome.</span>
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {project.outcome}
+              </p>
+            </div>
+          </motion.div>
 
           {/* Links */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap gap-4"
+          <motion.div
+            className="flex flex-wrap gap-6 mb-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105"
-              style={{
-                background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
-              }}
-            >
-              Visit Live Site
-            </a>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-2xl bg-black text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105"
-            >
-              View on GitHub
-            </a>
-          </motion.section>
-        </div>
-      </main>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-4 rounded-2xl bg-black text-white text-lg font-semibold hover:bg-gray-800 transition-colors"
+              >
+                Visit Live Site
+              </a>
+            )}
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-4 rounded-2xl bg-gray-100 text-black text-lg font-semibold hover:bg-gray-200 transition-colors"
+              >
+                GitHub
+              </a>
+            )}
+          </motion.div>
 
-      {/* Footer CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="bg-gray-50 py-20 px-4"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-['Red_Hat_Display'] font-bold mb-6 text-black">
-            Interested in working together?
-          </h2>
-          <Contact />
+
         </div>
-      </motion.div>
+      </div>
+      <Footer />
     </div>
   );
 }

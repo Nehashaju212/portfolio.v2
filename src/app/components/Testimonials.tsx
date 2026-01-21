@@ -16,9 +16,9 @@ const testimonials = [
     text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
     rotation: 4,
     image: thambu,
-    scale: 1,
+    scale: 1.1,
     x: 0,
-    y: 0,
+    y: 5,
   },
   {
     id: 2,
@@ -27,8 +27,8 @@ const testimonials = [
     text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
     rotation: -4,
     image: img3,
-    scale: 1,
-    x: 0,
+    scale: 1.1,
+    x: -5,
     y: 0,
   },
   {
@@ -38,9 +38,9 @@ const testimonials = [
     text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
     rotation: 8,
     image: img4,
-    scale: 1,
+    scale: 1.2,
     x: 0,
-    y: 0,
+    y: 10,
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const testimonials = [
     text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
     rotation: 2,
     image: img5,
-    scale: 1,
+    scale: 1.1,
     x: 0,
     y: 0,
   },
@@ -60,9 +60,9 @@ const testimonials = [
     text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
     rotation: -8,
     image: img6,
-    scale: 1,
-    x: 0,
-    y: 0,
+    scale: 1.1,
+    x: 5,
+    y: 5,
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const testimonials = [
     text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
     rotation: 2,
     image: img7,
-    scale: 1,
+    scale: 1.1,
     x: 0,
     y: 0,
   },
@@ -188,14 +188,14 @@ export function Testimonials() {
                 </p>
 
                 {/* Decorative SVG */}
-                <div className="absolute bottom-28 md:bottom-32 left-4 md:left-6 w-16 md:w-20 h-10 md:h-12 opacity-80">
+                <div className="absolute bottom-20 md:bottom-24 left-4 md:left-6 w-16 md:w-20 h-10 md:h-12 opacity-80">
                   <svg className="block w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 77.3684 49.8672">
                     <path d={svgPaths.p3ae0d00} stroke="#FA8CBA" strokeLinecap="round" strokeWidth="2" />
                   </svg>
                 </div>
 
                 {/* Person Image */}
-                <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 w-32 md:w-40 h-40 md:h-48 overflow-hidden pointer-events-none">
+                <div className="absolute bottom-0 right-0 w-36 md:w-44 h-44 md:h-52 overflow-hidden pointer-events-none">
                   <img
                     src={testimonial.image}
                     alt=""
