@@ -1,14 +1,21 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import caseStudyImage from '@/assets/casestudy.jpeg';
+import virtualcalcImage from '@/assets/virtualcalc.png';
+import signImage from '@/assets/sign.png';
+import thinkImage from '@/assets/think ai.png';
 
 const projects = [
-  { id: 'think-ai', title: 'Think AI' },
-  { id: 'project-2', title: 'Think AI' },
-  { id: 'project-3', title: 'Think AI' },
-  { id: 'project-4', title: 'Think AI' },
-  { id: 'project-5', title: 'Think AI' },
-  { id: 'project-6', title: 'Think AI' },
+  { id: 'project-4', title: 'Think AI', image: thinkImage },
+  { id: 'project-1', title: 'Case Studies', image: caseStudyImage },
+  { id: 'project-6', title: 'PharmaAssist' },
+  { id: 'project-2', title: 'Virtual Calculator', image: virtualcalcImage },
+  { id: 'project-3', title: 'Sign Language Translator', image: signImage },
+  { id: 'project-7', title: 'Weather Forecast App' },
+  { id: 'project-8', title: 'InFlow Redesign' },
+  { id: 'project-9', title: 'Creative Posters Collection' },
+  { id: 'project-10', title: 'GoodTurn' },
 ];
 
 export function Work() {
@@ -51,8 +58,18 @@ export function Work() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Link to={`/project/${project.id}`}>
-                <div className="bg-[#d6d6d6] rounded-xl h-64 mb-4 overflow-hidden transition-transform group-hover:scale-105 cursor-pointer">
-                  {/* Placeholder for project image */}
+                <div className="bg-[#d6d6d6] rounded-xl h-64 mb-4 overflow-hidden transition-transform group-hover:scale-105 cursor-pointer relative">
+                  {(project as any).image ? (
+                    <img
+                      src={(project as any).image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-gray-400">
+                      {/* Placeholder for project image */}
+                    </div>
+                  )}
                 </div>
                 <h3 className="font-['Red_Hat_Display'] font-semibold text-2xl text-center text-black group-hover:opacity-70 transition-opacity">
                   {project.title}

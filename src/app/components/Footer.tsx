@@ -1,13 +1,19 @@
-import { motion } from 'motion/react';
-import { Mail, Linkedin } from 'lucide-react';
+import { motion } from "motion/react";
+import { Mail, Linkedin } from "lucide-react";
 
 import img1 from "../../assets/1.png";
 import img2 from "../../assets/12.png";
 import img3 from "../../assets/6.png";
 
+const PROJECT_LINK = "http://localhost:5173/project/project-4";
+
 export function Footer() {
   return (
-    <section id="contact" className="border-t border-gray-100 pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden">
+    <section
+      id="contact"
+      className="border-t border-gray-100 pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden"
+    >
+      {/* Header */}
       <motion.div
         className="max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
@@ -15,38 +21,36 @@ export function Footer() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-black">
-            <span className="font-['Red_Hat_Display'] font-medium">connect with </span>
-            <span className="font-['Playfair_Display'] italic font-medium">me.</span>
+            <span className="font-['Red_Hat_Display'] font-medium">
+              connect with{" "}
+            </span>
+            <span className="font-['Playfair_Display'] italic font-medium">
+              me.
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto font-['Red_Hat_Display'] font-medium">
-            Open to collaborations, projects, and conversations that lead to meaningful work.
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-['Red_Hat_Display'] font-medium">
+            Open to collaborations, projects, and conversations that lead to
+            meaningful work.
           </p>
         </div>
 
-        {/* CTA Button */}
-        <motion.div
-          className="flex justify-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div className="flex justify-center mb-16">
           <a
             href="mailto:nehashaju212@gmail.com"
-            className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105 active:scale-95 inline-block"
+            className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl hover:scale-105 transition-transform"
             style={{
-              background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
+              background:
+                "linear-gradient(100deg,#b267f1,#db7dd2,#fa8cba,#fba045)",
             }}
           >
             let's talk.
           </a>
-        </motion.div>
+        </div>
       </motion.div>
 
-      {/* Footer Section */}
+      {/* Footer */}
       <motion.div
         className="max-w-[1186px] mx-auto mt-20"
         initial={{ opacity: 0 }}
@@ -54,224 +58,71 @@ export function Footer() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        {/* Navigation Links */}
-        <div className="flex justify-center gap-8 md:gap-11 mb-12 font-['Red_Hat_Display'] font-medium text-xl md:text-2xl">
-          <a href="#home" className="text-black hover:opacity-70 transition-opacity">home</a>
-          <a href="#about" className="text-black hover:opacity-70 transition-opacity">about</a>
-          <a href="#work" className="text-black hover:opacity-70 transition-opacity">works</a>
-          <a href="#contact" className="text-black hover:opacity-70 transition-opacity">contact</a>
+        {/* Nav */}
+        <div className="flex justify-center gap-8 mb-12 text-xl font-medium">
+          <a href="#home">home</a>
+          <a href="#about">about</a>
+          <a href="#work">works</a>
+          <a href="#contact">contact</a>
         </div>
 
-        {/* Footer Content - Desktop Layout */}
+        {/* Desktop layout */}
         <div className="hidden lg:flex items-center justify-center gap-8">
-          {/* Crafted by text */}
-          <p className="font-['Red_Hat_Display'] font-normal text-2xl text-black text-center shrink-0">
-            crafted by neha&lt;3
-          </p>
+          <p className="text-2xl shrink-0">crafted by neha&lt;3</p>
 
-          {/* Stacked Images */}
-          <div className="flex items-center pr-[90px] shrink-0 -mb-40">
-            {/* Image 1 - Rotated 168deg, flipped */}
-            <motion.div
-              className="flex items-center justify-center -mr-[90px] relative shrink-0 z-10"
+          {/* Images */}
+          <div className="flex items-center pr-[70px] shrink-0 -mb-32">
+            {/* Image 1 */}
+            <motion.a
+              href={PROJECT_LINK}
+              className="-mr-[70px] relative z-10"
               whileHover={{ scale: 1.05, zIndex: 50 }}
-              transition={{ duration: 0.3 }}
             >
               <div
-                className="w-[285px] h-[240px]"
-                style={{
-                  transform: 'rotate(168deg) scaleY(-1)',
-                }}
+                className="w-[220px] h-[185px] rounded-xl overflow-hidden"
+                style={{ transform: "rotate(168deg) scaleY(-1)" }}
               >
-                <img
-                  src={img1}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+                <img src={img1} className="w-full h-full object-cover" />
               </div>
-            </motion.div>
+            </motion.a>
 
-            {/* Image 2 - Rotated 180deg, flipped */}
-            <motion.div
-              className="flex items-center justify-center -mr-[90px] relative shrink-0 z-20"
+            {/* Image 2 */}
+            <motion.a
+              href={PROJECT_LINK}
+              className="-mr-[70px] relative z-20"
               whileHover={{ scale: 1.05, zIndex: 50 }}
-              transition={{ duration: 0.3 }}
             >
               <div
-                className="w-[286px] h-[342px]"
-                style={{
-                  transform: 'rotate(180deg) scaleY(-1)',
-                }}
+                className="w-[220px] h-[260px] rounded-xl overflow-hidden"
+                style={{ transform: "rotate(180deg) scaleY(-1)" }}
               >
-                <img
-                  src={img2}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+                <img src={img2} className="w-full h-full object-cover" />
               </div>
-            </motion.div>
+            </motion.a>
 
-            {/* Image 3 - Rotated 13deg */}
-            <motion.div
-              className="flex items-center justify-center relative shrink-0 z-30"
+            {/* Image 3 */}
+            <motion.a
+              href={PROJECT_LINK}
+              className="relative z-30"
               whileHover={{ scale: 1.05, zIndex: 50 }}
-              transition={{ duration: 0.3 }}
             >
               <div
-                className="w-[318px] h-[205px] rounded-xl overflow-hidden"
-                style={{
-                  transform: 'rotate(13deg)',
-                }}
+                className="w-[245px] h-[160px] rounded-xl overflow-hidden"
+                style={{ transform: "rotate(13deg)" }}
               >
-                <img
-                  src={img3}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+                <img src={img3} className="w-full h-full object-cover" />
               </div>
-            </motion.div>
+            </motion.a>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-4 shrink-0">
-            <motion.a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:opacity-70 transition-opacity"
-              whileHover={{ scale: 1.1 }}
-              aria-label="LinkedIn"
-            >
+          {/* Socials */}
+          <div className="flex gap-4 shrink-0">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
               <Linkedin className="w-10 h-10" strokeWidth={1.5} />
-            </motion.a>
-            <motion.a
-              href="mailto:nehashaju212@gmail.com"
-              className="text-black hover:opacity-70 transition-opacity"
-              whileHover={{ scale: 1.1 }}
-              aria-label="Email"
-            >
+            </a>
+            <a href="mailto:nehashaju212@gmail.com">
               <Mail className="w-10 h-10" strokeWidth={1.5} />
-            </motion.a>
-            <motion.a
-              href="https://wa.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:opacity-70 transition-opacity"
-              whileHover={{ scale: 1.1 }}
-              aria-label="WhatsApp"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-message-circle"
-              >
-                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-              </svg>
-            </motion.a>
-          </div>
-        </div>
-
-        {/* Footer Content - Mobile/Tablet Layout */}
-        <div className="flex lg:hidden flex-col items-center gap-8">
-          {/* Crafted by text */}
-          <p className="font-['Red_Hat_Display'] font-normal text-xl md:text-2xl text-black text-center">
-            crafted by neha&lt;3
-          </p>
-
-          {/* Stacked Images - Tablet */}
-          <div className="hidden md:flex lg:hidden items-center justify-center scale-75">
-            <div className="flex items-center pr-[90px]">
-              {/* Image 1 */}
-              <motion.div
-                className="flex items-center justify-center -mr-[90px] relative z-10"
-                whileHover={{ scale: 1.05, zIndex: 50 }}
-              >
-                <div
-                  className="w-[285px] h-[240px]"
-                  style={{ transform: 'rotate(168deg) scaleY(-1)' }}
-                >
-                  <img src={img1} alt="" className="w-full h-full object-cover" />
-                </div>
-              </motion.div>
-
-              {/* Image 2 */}
-              <motion.div
-                className="flex items-center justify-center -mr-[90px] relative z-20"
-                whileHover={{ scale: 1.05, zIndex: 50 }}
-              >
-                <div
-                  className="w-[286px] h-[342px]"
-                  style={{ transform: 'rotate(180deg) scaleY(-1)' }}
-                >
-                  <img src={img2} alt="" className="w-full h-full object-cover" />
-                </div>
-              </motion.div>
-
-              {/* Image 3 */}
-              <motion.div
-                className="flex items-center justify-center relative z-30"
-                whileHover={{ scale: 1.05, zIndex: 50 }}
-              >
-                <div
-                  className="w-[318px] h-[205px] rounded-xl overflow-hidden"
-                  style={{ transform: 'rotate(13deg)' }}
-                >
-                  <img src={img3} alt="" className="w-full h-full object-cover" />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex items-center gap-4 md:gap-6">
-            <motion.a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:opacity-70 transition-opacity"
-              whileHover={{ scale: 1.1 }}
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-10 h-10" strokeWidth={1.5} />
-            </motion.a>
-            <motion.a
-              href="mailto:nehashaju212@gmail.com"
-              className="text-black hover:opacity-70 transition-opacity"
-              whileHover={{ scale: 1.1 }}
-              aria-label="Email"
-            >
-              <Mail className="w-10 h-10" strokeWidth={1.5} />
-            </motion.a>
-            <motion.a
-              href="https://wa.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:opacity-70 transition-opacity"
-              whileHover={{ scale: 1.1 }}
-              aria-label="WhatsApp"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-message-circle"
-              >
-                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-              </svg>
-            </motion.a>
+            </a>
           </div>
         </div>
       </motion.div>
