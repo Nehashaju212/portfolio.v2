@@ -1,13 +1,23 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const projects = [
   { id: 'think-ai', title: 'Think AI' },
   { id: 'project-2', title: 'Think AI' },
   { id: 'project-3', title: 'Think AI' },
+  { id: 'project-4', title: 'Think AI' },
+  { id: 'project-5', title: 'Think AI' },
+  { id: 'project-6', title: 'Think AI' },
 ];
 
 export function Work() {
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  const toggleView = () => {
+    setVisibleCount(prev => prev === 3 ? projects.length : 3);
+  };
+
   return (
     <section id="work" className="py-20 md:py-32 px-4">
       <motion.div
@@ -31,7 +41,7 @@ export function Work() {
 
         {/* Project Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {projects.map((project, index) => (
+          {projects.slice(0, visibleCount).map((project, index) => (
             <motion.div
               key={project.id}
               className="group"
@@ -61,12 +71,13 @@ export function Work() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <button
+            onClick={toggleView}
             className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105"
             style={{
               background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
             }}
           >
-            see more.
+            {visibleCount === 3 ? 'see more.' : 'see less.'}
           </button>
         </motion.div>
       </motion.div>
