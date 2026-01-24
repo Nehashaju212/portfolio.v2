@@ -4,13 +4,13 @@ import { ArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
 import { Footer } from '@/app/components/Footer';
 import { Header } from '@/app/components/Header';
-import caseStudyImage from '@/assets/case-study.jpeg';
-import virtualcalcImage from '@/assets/virtualcalc.png';
-import signImage from '@/assets/sign.png';
-import thinkImage from '@/assets/think-ai.png';
-import pharmImage from '@/assets/pharmassistt.png';
-import inflowImage from '@/assets/inflow.png';
-import posterImage from '@/assets/posters.png';
+import caseStudyImage from '@/assets/case-study.webp';
+import virtualcalcImage from '@/assets/virtualcalc.webp';
+import signImage from '@/assets/sign.webp';
+import thinkImage from '@/assets/think-ai.webp';
+import pharmImage from '@/assets/pharmassistt.webp';
+import inflowImage from '@/assets/inflow.webp';
+import posterImage from '@/assets/posters.webp';
 
 
 

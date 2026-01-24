@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 import svgPaths from "../../imports/svg-fcov86nyay";
-import thambu from "../../assets/thambu.png";
-import athira from "../../assets/athira.png";
-import rijas from "../../assets/rijaska.png";
-import aswath from "../../assets/aswathh.png";
-import soorya from "../../assets/soorya.png";
-import akshay from "../../assets/akshay.png";
-import kiran from "../../assets/kiran.png";
+import thambu from "../../assets/thambu.webp";
+import athira from "../../assets/athira.webp";
+import rijas from "../../assets/rijaska.webp";
+import aswath from "../../assets/aswathh.webp";
+import soorya from "../../assets/soorya.webp";
+import akshay from "../../assets/akshay.webp";
+import kiran from "../../assets/kiran.webp";
 
 const testimonials = [
   {
