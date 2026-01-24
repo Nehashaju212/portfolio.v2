@@ -1,9 +1,9 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import caseStudyImage from '@/assets/casestudy.jpeg';
+import caseStudyImage from '@/assets/case-study.jpeg';
 import signImage from '@/assets/sign.png';
-import thinkImage from '@/assets/think ai.png';
+import thinkImage from '@/assets/think-ai.png';
 import pharmassisttImage from '@/assets/pharmassistt.png';
 import inflowImage from '@/assets/inflow.png';
 

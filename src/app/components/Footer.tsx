@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 import { Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import thinkImage from "../../assets/think ai.png";
-import caseStudyImage from "../../assets/casestudy.jpeg";
+import thinkImage from "../../assets/think-ai.png";
+import caseStudyImage from "../../assets/case-study.jpeg";
 import pharmassisttImage from "../../assets/pharmassistt.png";
 
 const PROJECTS = {
