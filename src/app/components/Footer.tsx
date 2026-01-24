@@ -6,9 +6,9 @@ import caseStudyImage from "../../assets/casestudy.jpeg";
 import pharmassisttImage from "../../assets/pharmassistt.png";
 
 const PROJECTS = {
-  THINK_AI: "/project/project-4",
-  CASE_STUDY: "/project/project-1",
-  PHARMA_ASSIST: "/project/project-6",
+  THINK_AI: "/project/think-ai",
+  CASE_STUDY: "/project/case-studies",
+  PHARMA_ASSIST: "/project/pharma-assist",
 };
 
 const buttonVariants: any = {

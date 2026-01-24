@@ -25,13 +25,13 @@ const buttonVariants: any = {
 };
 
 const projects = [
-  { id: 'project-4', title: 'Think AI', image: thinkImage },
-  { id: 'project-1', title: 'Case Studies', image: caseStudyImage },
-  { id: 'project-6', title: 'PharmaAssist', image: pharmassisttImage },
-  { id: 'project-2', title: 'Virtual Calculator', image: virtualcalcImage },
-  { id: 'project-8', title: 'InFlow Redesign', image: inflowImage },
-  { id: 'project-3', title: 'Sign Language Translator', image: signImage },
-  { id: 'project-9', title: 'Creative Posters Collection', image: posterImage },
+  { id: 'think-ai', title: 'Think AI', image: thinkImage },
+  { id: 'case-studies', title: 'Case Studies', image: caseStudyImage },
+  { id: 'pharma-assist', title: 'PharmaAssist', image: pharmassisttImage },
+  { id: 'virtual-calculator', title: 'Virtual Calculator', image: virtualcalcImage },
+  { id: 'inflow-redesign', title: 'InFlow Redesign', image: inflowImage },
+  { id: 'sign-language-translator', title: 'Sign Language Translator', image: signImage },
+  { id: 'creative-posters', title: 'Creative Posters Collection', image: posterImage },
 ];
 
 export function Work() {

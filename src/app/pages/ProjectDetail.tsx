@@ -30,7 +30,7 @@ interface Project {
 
 // Project data - expand this with your actual project details
 const projectsData: Record<string, Project> = {
-  'project-1': {
+  'case-studies': {
     title: 'Case Studies',
     description: 'A collection of structured case studies created for Koncepts Lab, highlighting real projects, key features, and practical applications across different services.',
     fullDescription: 'This case study series was created to clearly present the services offered through real project examples. Each study focuses on showcasing core features, workflows, and outcomes in a way that’s easy to understand and visually clear. The goal was to help viewers quickly grasp what each service involves and how it can be applied in real-world scenarios.',
@@ -47,7 +47,7 @@ const projectsData: Record<string, Project> = {
     figma: 'https://www.figma.com/design/28H06klDsuwB7OV9ixanxx/KL-case-study?node-id=0-1&t=7k8RWq7PgS0f3Nbf-1',
     image: caseStudyImage
   },
-  'project-2': {
+  'virtual-calculator': {
     title: 'Virtual Calculator',
     description: 'A simple, interactive virtual calculator with gesture control, designed to perform basic arithmetic with clarity and ease.',
     fullDescription: 'This project is a fully code-driven virtual calculator built using Python. It uses gesture control as an alternative input method to perform basic arithmetic operations, focusing on logic implementation and input handling rather than visual interface design. The project was developed to explore gesture recognition, input mapping, and real-time processing through code.',
@@ -63,7 +63,7 @@ const projectsData: Record<string, Project> = {
     github: 'https://github.com/Nehashaju212/Virtual-Calculator',
     image: virtualcalcImage
   },
-  'project-3': {
+  'sign-language-translator': {
     title: 'Sign Language Translator',
     description: 'A Python-based computer vision system that translates hand gestures into readable text.',
     fullDescription: 'This project focuses on building a sign language translator using computer vision techniques in Python. The system detects and interprets hand gestures through a camera feed and converts them into corresponding text output. The aim was to explore gesture recognition, real-time processing, and the application of computer vision to improve accessibility and communication.',
@@ -79,7 +79,7 @@ const projectsData: Record<string, Project> = {
     github: 'https://github.com/Nehashaju212/Sign-Language-Translator',
     image: signImage
   },
-  'project-4': {
+  'think-ai': {
     title: 'Think AI',
     description: 'A content-driven platform showcasing real-world AI challenges.',
     fullDescription: 'ThinkAI is a public-facing, read-only platform created to present AI challenges derived from real government problem statements. The focus of the project was on structuring and presenting information clearly so users can understand the problem, context, and expected outcomes without unnecessary complexity. The platform serves as a central space where challenges can be explored and understood, while submissions are handled externally.',
@@ -96,7 +96,7 @@ const projectsData: Record<string, Project> = {
     image: thinkImage
   },
 
-  'project-6': {
+  'pharma-assist': {
     title: 'PharmaAssist',
     description: 'A digital platform designed to simplify ordering medicines and health essentials with quick access and clear flow.',
     fullDescription: 'PharmAssist is a web-based platform created to make ordering medicines and health essentials easier and more accessible. The platform allows users to search for medicines, select their location, and place orders through a clear and straightforward flow. The project focuses on reducing friction in the medicine-ordering process by presenting essential actions upfront and keeping the experience simple and intuitive.',
@@ -112,7 +112,7 @@ const projectsData: Record<string, Project> = {
     github: 'https://github.com/Pharm-Assist/pharmassistt',
     image: pharmImage
   },
-  'project-8': {
+  'inflow-redesign': {
     title: 'InFlow Redesign',
     description: 'A UI/UX redesign focused on improving clarity, usability, and conversation flow.',
     fullDescription: 'This project involved redesigning the Inflow Chat interface to create a clearer and more intuitive messaging experience. The focus was on simplifying interactions, improving visual hierarchy, and making conversations easier to follow. The redesign aimed to reduce friction in everyday chat usage while maintaining a clean and modern look.',
@@ -128,7 +128,7 @@ const projectsData: Record<string, Project> = {
     figma: 'https://www.figma.com/design/LCAIML1voCpo2FhIxjlOfR/InFlow.chat---Redesign?t=BDQP6XlhnxH5OvVR-0',
     image: inflowImage
   },
-  'project-9': {
+  'creative-posters': {
     title: 'Creative Posters Collection',
     description: 'A curated set of posters created across different themes and purposes.',
     fullDescription: 'This collection brings together posters designed for events, campaigns, and digital platforms. The focus across the work is on clear visual communication through thoughtful use of typography, color, and layout. Each poster explores different styles while keeping clarity and purpose at the center of the design.',
