@@ -2,20 +2,36 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import caseStudyImage from '@/assets/casestudy.jpeg';
-import virtualcalcImage from '@/assets/virtualcalc.png';
 import signImage from '@/assets/sign.png';
 import thinkImage from '@/assets/think ai.png';
+import pharmassisttImage from '@/assets/pharmassistt.png';
+import inflowImage from '@/assets/inflow.png';
+
+import virtualcalcImage from '@/assets/virtualcalc.png';
+import posterImage from '@/assets/posters.png';
+
+const buttonVariants: any = {
+  initial: { scale: 1 },
+  hover: { scale: 1.08, transition: { type: "spring", stiffness: 400, damping: 10 } },
+  tap: { scale: 0.95 },
+  pulse: {
+    scale: [1, 1.03, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
 
 const projects = [
   { id: 'project-4', title: 'Think AI', image: thinkImage },
   { id: 'project-1', title: 'Case Studies', image: caseStudyImage },
-  { id: 'project-6', title: 'PharmaAssist' },
+  { id: 'project-6', title: 'PharmaAssist', image: pharmassisttImage },
   { id: 'project-2', title: 'Virtual Calculator', image: virtualcalcImage },
+  { id: 'project-8', title: 'InFlow Redesign', image: inflowImage },
   { id: 'project-3', title: 'Sign Language Translator', image: signImage },
-  { id: 'project-7', title: 'Weather Forecast App' },
-  { id: 'project-8', title: 'InFlow Redesign' },
-  { id: 'project-9', title: 'Creative Posters Collection' },
-  { id: 'project-10', title: 'GoodTurn' },
+  { id: 'project-9', title: 'Creative Posters Collection', image: posterImage },
 ];
 
 export function Work() {
@@ -87,16 +103,33 @@ export function Work() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <button
+          <motion.button
+            variants={buttonVariants}
+            initial="initial"
+            animate="pulse"
+            whileHover="hover"
+            whileTap="tap"
             onClick={toggleView}
-            className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl transition-transform hover:scale-105"
+            className="px-12 py-3.5 rounded-2xl text-white font-semibold text-xl shadow-lg"
             style={{
-              background: 'linear-gradient(100.654deg, rgb(178, 103, 241) 4.0048%, rgb(219, 125, 210) 37.894%, rgb(250, 140, 186) 71.782%, rgb(251, 160, 69) 105.67%)',
+              background: 'linear-gradient(270deg, #B267F1, #DB7DD2, #FA8CBA, #FBA045, #B267F1)',
+              backgroundSize: '400% 400%',
             }}
           >
             {visibleCount === 3 ? 'see more.' : 'see less.'}
-          </button>
+          </motion.button>
         </motion.div>
+
+        <style>{`
+          @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          button[style*="backgroundSize: 400%"] {
+            animation: gradient-move 10s ease infinite;
+          }
+        `}</style>
       </motion.div>
     </section>
   );

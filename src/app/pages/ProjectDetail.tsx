@@ -3,11 +3,14 @@ import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
 import { Footer } from '@/app/components/Footer';
+import { Header } from '@/app/components/Header';
 import caseStudyImage from '@/assets/casestudy.jpeg';
 import virtualcalcImage from '@/assets/virtualcalc.png';
 import signImage from '@/assets/sign.png';
 import thinkImage from '@/assets/think ai.png';
 import pharmImage from '@/assets/pharmassistt.png';
+import inflowImage from '@/assets/inflow.png';
+import posterImage from '@/assets/posters.png';
 
 
 
@@ -15,10 +18,10 @@ interface Project {
   title: string;
   description: string;
   fullDescription: string;
-  technologies: string[];
+  technologies?: string[];
   features: string[];
-  challenges: string;
-  outcome: string;
+  challenges?: string;
+  outcome?: string;
   link?: string;
   github?: string;
   figma?: string;
@@ -95,40 +98,24 @@ const projectsData: Record<string, Project> = {
 
   'project-6': {
     title: 'PharmaAssist',
-    description: 'A digital assistant for pharmacists to manage inventory and patient records.',
-    fullDescription: 'PharmaAssist streamlines pharmacy operations by automating inventory tracking and providing quick access to patient medication history and drug interaction data.',
-    technologies: ['Angular', 'Firebase', 'RxJS'],
+    description: 'A digital platform designed to simplify ordering medicines and health essentials with quick access and clear flow.',
+    fullDescription: 'PharmAssist is a web-based platform created to make ordering medicines and health essentials easier and more accessible. The platform allows users to search for medicines, select their location, and place orders through a clear and straightforward flow. The project focuses on reducing friction in the medicine-ordering process by presenting essential actions upfront and keeping the experience simple and intuitive.',
+    technologies: ['React', 'TailwindCSS', 'Node.js', 'Express.js', 'MongoDB'],
     features: [
       'Inventory management',
       'Patient profile system',
       'Drug interaction checker',
       'Automated reordering'
     ],
-    challenges: 'Ensuring data privacy and compliance with healthcare regulations.',
-    outcome: 'Adopted by 5 local pharmacies, improving operational efficiency.',
+    challenges: 'Designing a flow that feels reliable and easy to use, especially for users who may not be very tech-savvy. Another challenge was presenting essential actions like location selection and medicine search clearly without overwhelming the interface. Maintaining clarity while handling health-related content required careful layout and hierarchy decisions.',
+    outcome: 'A clean and user-friendly platform that enables users to quickly find medicines, understand available options, and navigate the ordering process with ease. The final result emphasizes clarity, accessibility, and a smooth user experience.',
     github: 'https://github.com/Pharm-Assist/pharmassistt',
     image: pharmImage
   },
-  'project-7': {
-    title: 'Weather Forecast App',
-    description: 'A beautiful and accurate weather application providing global forecasts.',
-    fullDescription: 'This app delivers real-time weather updates, hourly forecasts, and 7-day outlooks using data from reliable meteorological sources, presented in a visually appealing interface.',
-    technologies: ['React Native', 'OpenWeatherMap API', 'Redux'],
-    features: [
-      'Location-based weather',
-      'Severe weather alerts',
-      'Interactive maps',
-      'Customizable themes'
-    ],
-    challenges: 'Managing API rate limits and optimizing battery usage on mobile devices.',
-    outcome: '4.5-star rating on the app store with over 10k downloads.',
-    link: '#',
-    github: '#'
-  },
   'project-8': {
     title: 'InFlow Redesign',
-    description: 'A comprehensive UI/UX redesign of the popular InFlow productivity app.',
-    fullDescription: 'This project involved a complete overhaul of the user interface and experience for InFlow, focusing on intuitive navigation, accessibility, and a modern aesthetic.',
+    description: 'A UI/UX redesign focused on improving clarity, usability, and conversation flow.',
+    fullDescription: 'This project involved redesigning the Inflow Chat interface to create a clearer and more intuitive messaging experience. The focus was on simplifying interactions, improving visual hierarchy, and making conversations easier to follow. The redesign aimed to reduce friction in everyday chat usage while maintaining a clean and modern look.',
     technologies: ['Figma', 'Adobe XD', 'Prototyping', 'User Testing'],
     features: [
       'Modern design system',
@@ -136,42 +123,23 @@ const projectsData: Record<string, Project> = {
       'Dark mode support',
       'Accessibility compliance'
     ],
-    challenges: 'Balancing the needs of existing power users with a friendly onboarding for new users.',
-    outcome: 'User engagement increased by 25% following the redesign.',
-    link: '#',
-    github: '#'
+    challenges: 'Balancing functionality with simplicity in a chat interface, while ensuring messages, actions, and states were clearly distinguishable. Another challenge was improving readability and flow without adding unnecessary visual elements.',
+    outcome: 'A refined chat interface that feels cleaner, easier to navigate, and more intuitive to use. The redesign improves message clarity and overall interaction flow, resulting in a smoother chat experience.',
+    figma: 'https://www.figma.com/design/LCAIML1voCpo2FhIxjlOfR/InFlow.chat---Redesign?t=BDQP6XlhnxH5OvVR-0',
+    image: inflowImage
   },
   'project-9': {
     title: 'Creative Posters Collection',
-    description: 'A digital gallery showcasing a series of creative graphic design posters.',
-    fullDescription: 'This portfolio piece highlights a collection of artistic posters created for various events and brands, exploring typography, color theory, and visual composition.',
-    technologies: ['Photoshop', 'Illustrator', 'InDesign'],
+    description: 'A curated set of posters created across different themes and purposes.',
+    fullDescription: 'This collection brings together posters designed for events, campaigns, and digital platforms. The focus across the work is on clear visual communication through thoughtful use of typography, color, and layout. Each poster explores different styles while keeping clarity and purpose at the center of the design.',
     features: [
-      'High-resolution gallery',
-      'Behind-the-scenes process',
-      'Print-ready downloads',
-      'Interactive viewing experience'
+      'Clear visual communication',
+      'Thoughtful use of typography',
+      'Color theory',
+      'Visual composition'
     ],
-    challenges: 'Accurately representing print colors on digital screens.',
-    outcome: 'Selected for display in a digital arts exhibition.',
-    link: '#',
-    github: '#'
-  },
-  'project-10': {
-    title: 'GoodTurn',
-    description: 'A platform connecting volunteers with local community service opportunities.',
-    fullDescription: 'GoodTurn is a social platform that makes it easy for individuals to find and sign up for volunteer work in their community, fostering a culture of giving back.',
-    technologies: ['Vue.js', 'Django', 'PostgreSQL'],
-    features: [
-      'Event discovery map',
-      'Volunteer profiles',
-      'Organization dashboards',
-      'Impact tracking'
-    ],
-    challenges: 'Building trust and verification systems for both volunteers and organizations.',
-    outcome: 'Facilitated over 5000 hours of community service in the first year.',
-    link: '#',
-    github: '#'
+    figma: 'https://www.figma.com/design/uG8qSsjdvig5IoyODJJJLq/Posters?node-id=0-1&p=f&t=mOeXIJmgw9RnHaEf-0',
+    image: posterImage
   }
 };
 
@@ -203,15 +171,16 @@ export function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-white text-black font-['Red_Hat_Display']">
+      <Header />
       <div className="max-w-[1800px] mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
         {/* Sidebar / Back Navigation - Occupies left columns */}
         <div className="lg:col-span-2 lg:col-start-1 flex-shrink-0 mb-12 lg:mb-0 lg:sticky lg:top-32 h-fit">
           <Link
             to="/"
-            className="inline-flex items-center gap-3 text-sm font-medium text-gray-500 hover:text-black transition-colors group"
+            className="inline-flex items-center gap-3 text-lg font-medium text-gray-500 hover:text-black transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
             back to portfolio
           </Link>
         </div>
@@ -269,52 +238,58 @@ export function ProjectDetail() {
 
 
           {/* Technologies */}
-          <motion.section
-            className="mb-20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          {project.technologies && project.technologies.length > 0 && (
+            <motion.section
+              className="mb-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-wrap gap-4">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-6 py-3 rounded-full border border-gray-200 text-gray-800 text-lg font-medium bg-gray-50"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.section>
+          )}
 
-            <div className="flex flex-wrap gap-4">
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-6 py-3 rounded-full border border-gray-200 text-gray-800 text-lg font-medium bg-gray-50"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Challenges */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div>
-              <h2 className="text-3xl md:text-5xl mb-6 text-black">
-                <span className="font-['Red_Hat_Display'] font-medium">the </span>
-                <span className="font-['Playfair_Display'] italic font-medium">challenges.</span>
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {project.challenges}
-              </p>
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-5xl mb-6 text-black">
-                <span className="font-['Red_Hat_Display'] font-medium">the </span>
-                <span className="font-['Playfair_Display'] italic font-medium">outcome.</span>
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {project.outcome}
-              </p>
-            </div>
-          </motion.div>
-
+          {/* Challenges & Outcome */}
+          {(project.challenges || project.outcome) && (
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {project.challenges && (
+                <div>
+                  <h2 className="text-3xl md:text-5xl mb-6 text-black">
+                    <span className="font-['Red_Hat_Display'] font-medium">the </span>
+                    <span className="font-['Playfair_Display'] italic font-medium">challenges.</span>
+                  </h2>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {project.challenges}
+                  </p>
+                </div>
+              )}
+              {project.outcome && (
+                <div>
+                  <h2 className="text-3xl md:text-5xl mb-6 text-black">
+                    <span className="font-['Red_Hat_Display'] font-medium">the </span>
+                    <span className="font-['Playfair_Display'] italic font-medium">outcome.</span>
+                  </h2>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {project.outcome}
+                  </p>
+                </div>
+              )}
+            </motion.div>
+          )}
           {/* Links */}
           <motion.div
             className="flex flex-wrap gap-6 mb-1"
@@ -355,9 +330,9 @@ export function ProjectDetail() {
           </motion.div>
 
 
-        </div>
-      </div>
+        </div >
+      </div >
       <Footer />
-    </div>
+    </div >
   );
 }

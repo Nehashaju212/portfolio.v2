@@ -2,6 +2,8 @@ import { motion, useAnimationFrame, useMotionValue, useSpring } from 'framer-mot
 import { useState } from 'react';
 
 // Your imports
+import img1 from "../../assets/1.png";
+import img2 from "../../assets/2.png";
 import img3 from "../../assets/3.png";
 import img4 from "../../assets/4.png";
 import img5 from "../../assets/5.png";
@@ -13,15 +15,31 @@ import img10 from "../../assets/10.png";
 import img11 from "../../assets/11.png";
 import img12 from "../../assets/12.png";
 import img13 from "../../assets/13.png";
+import img14 from "../../assets/14.jpg";
+import img15 from "../../assets/15.jpeg";
 import imgCap from "../../assets/cap.png";
 import imgThambu from "../../assets/thambu.png";
 import imgFilm from "../../assets/film.png";
 import imgPaint from "../../assets/paint.png";
 import imgCam from "../../assets/cam.png";
 
-// Creating a set of exactly 12 images
-const baseImages = [img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img3];
+// Creating a set of 15 unique images from 1 to 15
+const baseImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15];
 const images = baseImages;
+
+const buttonVariants: any = {
+  initial: { scale: 1 },
+  hover: { scale: 1.08, transition: { type: "spring", stiffness: 400, damping: 10 } },
+  tap: { scale: 0.95 },
+  pulse: {
+    scale: [1, 1.03, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
 
 export function About() {
   const [isPaused, setIsPaused] = useState(false);
@@ -35,9 +53,8 @@ export function About() {
 
   // --- DESIGN PRECISION SETTINGS ---
   const perspectiveValue = "600px";
-  // Reducing the radius brings the 12 cards closer together mathematically
-  const radius = -650;
-  // Increasing width to 380px makes them nearly touch on a 750 radius
+  // Adjusted radius for 15 items to maintain comfortable spacing
+  const radius = -800;
   const cardWidth = 300;
   const angleStep = 360 / images.length;
 
@@ -120,12 +137,16 @@ export function About() {
       <div className="flex flex-col items-center -mt-32 relative z-10 space-y-12">
         {!isExpanded && (
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            variants={buttonVariants}
+            initial="initial"
+            animate="pulse"
+            whileHover="hover"
+            whileTap="tap"
             onClick={() => setIsExpanded(true)}
             className="px-12 py-3.5 rounded-2xl text-white font-semibold text-xl shadow-lg"
             style={{
-              background: 'linear-gradient(90deg, #B267F1 0%, #DB7DD2 33%, #FA8CBA 66%, #FBA045 100%)',
+              background: 'linear-gradient(270deg, #B267F1, #DB7DD2, #FA8CBA, #FBA045, #B267F1)',
+              backgroundSize: '400% 400%',
             }}
           >
             see more.
@@ -197,7 +218,7 @@ export function About() {
                     <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
                       Mulearn Foundation (remote)
                     </p>
-                    <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">August 2025 - present</p>
+                    <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">August 2025 - January 2026</p>
                   </div>
 
                   <div>
@@ -294,18 +315,33 @@ export function About() {
           {/* Bottom "See Less" Button */}
           <div className="flex justify-center pb-16">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              variants={buttonVariants}
+              initial="initial"
+              animate="pulse"
+              whileHover="hover"
+              whileTap="tap"
               onClick={() => setIsExpanded(false)}
               className="px-12 py-3.5 rounded-2xl text-white font-semibold text-xl shadow-lg"
               style={{
-                background: 'linear-gradient(90deg, #B267F1 0%, #DB7DD2 33%, #FA8CBA 66%, #FBA045 100%)',
+                background: 'linear-gradient(270deg, #B267F1, #DB7DD2, #FA8CBA, #FBA045, #B267F1)',
+                backgroundSize: '400% 400%',
               }}
             >
               see less.
             </motion.button>
           </div>
         </motion.div>
+
+        <style>{`
+          @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          button[style*="backgroundSize: 400%"] {
+            animation: gradient-move 10s ease infinite;
+          }
+        `}</style>
       </div>
     </section>
   );

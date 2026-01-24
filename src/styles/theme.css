@@ -135,11 +135,6 @@
     @apply bg-background text-foreground;
   }
 
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
-
   h1 {
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
@@ -181,4 +176,15 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+}
+
+.glass-nav {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
 }

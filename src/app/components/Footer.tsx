@@ -1,17 +1,35 @@
 import { motion } from "motion/react";
 import { Mail, Linkedin } from "lucide-react";
 
-import img1 from "../../assets/1.png";
-import img2 from "../../assets/12.png";
-import img3 from "../../assets/6.png";
+import thinkImage from "../../assets/think ai.png";
+import caseStudyImage from "../../assets/casestudy.jpeg";
+import pharmassisttImage from "../../assets/pharmassistt.png";
 
-const PROJECT_LINK = "http://localhost:5173/project/project-4";
+const PROJECTS = {
+  THINK_AI: "/project/project-4",
+  CASE_STUDY: "/project/project-1",
+  PHARMA_ASSIST: "/project/project-6",
+};
+
+const buttonVariants = {
+  initial: { scale: 1 },
+  hover: { scale: 1.08, transition: { type: "spring", stiffness: 400, damping: 10 } },
+  tap: { scale: 0.95 },
+  pulse: {
+    scale: [1, 1.03, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
 
 export function Footer() {
   return (
     <section
       id="contact"
-      className="border-t border-gray-100 pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden"
+      className="pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden"
     >
       {/* Header */}
       <motion.div
@@ -37,17 +55,59 @@ export function Footer() {
         </div>
 
         <div className="flex justify-center mb-16">
-          <a
+          <motion.a
             href="mailto:nehashaju212@gmail.com"
-            className="px-6 py-3 rounded-2xl text-white font-['Red_Hat_Display'] font-semibold text-xl hover:scale-105 transition-transform"
+            variants={buttonVariants}
+            initial="initial"
+            animate="pulse"
+            whileHover="hover"
+            whileTap="tap"
+            className="group relative px-10 py-5 rounded-full text-white font-['Red_Hat_Display'] font-bold text-2xl overflow-hidden shadow-xl"
             style={{
-              background:
-                "linear-gradient(100deg,#b267f1,#db7dd2,#fa8cba,#fba045)",
+              background: "linear-gradient(270deg, #b267f1, #db7dd2, #fa8cba, #fba045, #b267f1)",
+              backgroundSize: "400% 400%",
             }}
           >
-            let's talk.
-          </a>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine"
+            />
+            <span className="relative flex items-center gap-3">
+              let's talk.
+              <motion.span
+                className="inline-block"
+                variants={{
+                  hover: { x: 5 },
+                  initial: { x: 0 }
+                }}
+              >
+                <Mail className="w-6 h-6" />
+              </motion.span>
+            </span>
+          </motion.a>
         </div>
+
+        <style>{`
+          @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          @keyframes shine {
+            100% { transform: translateX(100%); }
+          }
+          .animate-gradient {
+            animation: gradient-move 8s ease infinite;
+          }
+          .animate-shine {
+            animation: shine 1.5s infinite;
+          }
+          .group:hover {
+            animation: gradient-move 3s ease infinite;
+          }
+          a[style*="backgroundSize: 400%"] {
+            animation: gradient-move 10s ease infinite;
+          }
+        `}</style>
       </motion.div>
 
       {/* Footer */}
@@ -58,59 +118,51 @@ export function Footer() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        {/* Nav */}
-        <div className="flex justify-center gap-8 mb-12 text-xl font-medium">
-          <a href="#home">home</a>
-          <a href="#about">about</a>
-          <a href="#work">works</a>
-          <a href="#contact">contact</a>
-        </div>
-
         {/* Desktop layout */}
         <div className="hidden lg:flex items-center justify-center gap-8">
           <p className="text-2xl shrink-0">crafted by neha&lt;3</p>
 
           {/* Images */}
           <div className="flex items-center pr-[70px] shrink-0 -mb-32">
-            {/* Image 1 */}
+            {/* Image 1: Think AI */}
             <motion.a
-              href={PROJECT_LINK}
+              href={PROJECTS.THINK_AI}
               className="-mr-[70px] relative z-10"
               whileHover={{ scale: 1.05, zIndex: 50 }}
             >
               <div
-                className="w-[220px] h-[185px] rounded-xl overflow-hidden"
-                style={{ transform: "rotate(168deg) scaleY(-1)" }}
+                className="w-[220px] h-[185px] rounded-[2rem] overflow-hidden"
+                style={{ transform: "rotate(-12deg)" }}
               >
-                <img src={img1} className="w-full h-full object-cover" />
+                <img src={thinkImage} className="w-full h-full object-cover" />
               </div>
             </motion.a>
 
-            {/* Image 2 */}
+            {/* Image 2: Case Study */}
             <motion.a
-              href={PROJECT_LINK}
+              href={PROJECTS.CASE_STUDY}
               className="-mr-[70px] relative z-20"
               whileHover={{ scale: 1.05, zIndex: 50 }}
             >
               <div
-                className="w-[220px] h-[260px] rounded-xl overflow-hidden"
-                style={{ transform: "rotate(180deg) scaleY(-1)" }}
+                className="w-[220px] h-[260px] rounded-[2rem] overflow-hidden"
+                style={{ transform: "rotate(-5deg)" }}
               >
-                <img src={img2} className="w-full h-full object-cover" />
+                <img src={caseStudyImage} className="w-full h-full object-cover" />
               </div>
             </motion.a>
 
-            {/* Image 3 */}
+            {/* Image 3: PharmaAssist */}
             <motion.a
-              href={PROJECT_LINK}
+              href={PROJECTS.PHARMA_ASSIST}
               className="relative z-30"
               whileHover={{ scale: 1.05, zIndex: 50 }}
             >
               <div
-                className="w-[245px] h-[160px] rounded-xl overflow-hidden"
+                className="w-[245px] h-[160px] rounded-[2rem] overflow-hidden"
                 style={{ transform: "rotate(13deg)" }}
               >
-                <img src={img3} className="w-full h-full object-cover" />
+                <img src={pharmassisttImage} className="w-full h-full object-cover" />
               </div>
             </motion.a>
           </div>

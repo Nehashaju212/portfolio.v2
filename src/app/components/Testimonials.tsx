@@ -2,78 +2,90 @@ import { motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 import svgPaths from "../../imports/svg-fcov86nyay";
 import thambu from "../../assets/thambu.png";
-import img3 from "../../assets/3.png";
-import img4 from "../../assets/4.png";
-import img5 from "../../assets/5.png";
-import img6 from "../../assets/6.png";
-import img7 from "../../assets/7.png";
+import athira from "../../assets/athira.png";
+import rijas from "../../assets/rijaska.png";
+import aswath from "../../assets/aswathh.png";
+import soorya from "../../assets/soorya.png";
+import akshay from "../../assets/akshay.png";
+import kiran from "../../assets/kiran.png";
 
 const testimonials = [
   {
     id: 1,
     name: 'Thamanna Manaf',
     role: 'Project Coordinator at Konceptslab',
-    text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
+    text: 'Neha communicated clearly, managed timelines effectively, handled feedback smoothly, and helped keep the team aligned while delivering work on schedule.',
     rotation: 4,
     image: thambu,
-    scale: 1.1,
-    x: 0,
-    y: 5,
+    scale: 1.4,
+    x: 4,
+    y: 2,
   },
   {
     id: 2,
     name: 'Athira K M',
     role: 'UI/UX Designer at Konceptslab',
-    text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
+    text: 'A passionate and dedicated UI/UX designer intern with strong Figma skills, a quick learner who adapts fast and consistently delivers quality design work.',
     rotation: -4,
-    image: img3,
-    scale: 1.1,
-    x: -5,
-    y: 0,
+    image: athira,
+    scale: 1.5,
+    x: 5,
+    y: 2,
   },
   {
     id: 3,
-    name: 'Neha Shaju',
-    role: 'UI/UX Designer at Konceptslab',
-    text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
+    name: 'Muhammad Rijas',
+    role: 'CRO at Konceptslab',
+    text: 'Working with Neha was amazing. She designed my landing page and app beautifully. Her Figma skills, color sense, and intuitive design style really stood out.',
     rotation: 8,
-    image: img4,
-    scale: 1.2,
-    x: 0,
-    y: 10,
+    image: rijas,
+    scale: 1.4,
+    x: 5,
+    y: 8,
   },
   {
     id: 4,
-    name: 'Neha Shaju',
-    role: 'ui ux at konceptslab',
-    text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
+    name: 'Ashwath Sivan P',
+    role: 'Lead Developer at Konceptslab',
+    text: 'Neha was easy to collaborate with and responsive to feedback, her designs aligned with development needs, supporting execution smooth delivery.',
     rotation: 2,
-    image: img5,
-    scale: 1.1,
-    x: 0,
-    y: 0,
+    image: aswath,
+    scale: 1.6,
+    x: 8,
+    y: 3,
   },
   {
     id: 5,
-    name: 'Neha Shaju',
-    role: 'ui ux at konceptslab',
-    text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
+    name: 'Soorya PS',
+    role: 'QA at Konceptslab',
+    text: 'Neha’s designs were clear, consistent, and easy to test; her attention to detail reduced ambiguity and ensured validation across features.',
     rotation: -8,
-    image: img6,
-    scale: 1.1,
+    image: soorya,
+    scale: 1.7,
     x: 5,
-    y: 5,
+    y: 6,
   },
   {
     id: 6,
-    name: 'Neha Shaju',
-    role: 'ui ux at konceptslab',
-    text: 'neha enna scnaaa. pspspsss, hardworking, dedicatedd. work workk workkkkkk enna chindha mathram olluu.',
+    name: 'Akshay CS',
+    role: 'Flutter Developer at Konceptslab',
+    text: 'Designs translated smoothly into Flutter components, with clear layouts and states, making implementation straightforward.',
     rotation: 2,
-    image: img7,
-    scale: 1.1,
-    x: 0,
-    y: 0,
+    image: akshay,
+    scale: 1.7,
+    x: 5,
+    y: 6,
+  },
+  {
+    id: 7,
+    name: 'Kiran',
+    role: 'Web Developer at Konceptslab',
+    text: 'Neha’s designs were clear and structured, making implementation easy and reducing friction during development overall.',
+    rotation: -4,
+    image: kiran,
+    scale: 1.7,
+    x: 5,
+    y: 8,
   },
 ];
 
@@ -87,54 +99,111 @@ export function Testimonials() {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    // Auto-scroll configuration
-    const scrollSpeed = 0.3; // pixels per frame (adjust for speed)
+    let isDragging = false;
+    let startX: number;
+    let scrollLeft: number;
+    let isPaused = false;
     let animationFrameId: number;
 
+    // Calculate set width accurately
+    const cardWidth = 280; // 256px width + 24px gap
+    const oneSetWidth = cardWidth * testimonials.length;
+
+    // Initial scroll to the middle
+    container.scrollLeft = oneSetWidth;
+
     const autoScroll = () => {
-      if (container) {
-        container.scrollLeft += scrollSpeed;
+      if (container && !isDragging && !isPaused) {
+        container.scrollLeft += 1; // Faster speed for testing (1px per frame)
 
-        // Calculate one set width for seamless reset
-        const cardWidth = 256 + 24; // w-64 (256px) + gap-6 (24px)
-        const oneSetWidth = cardWidth * testimonials.length;
-
-        // Reset to beginning seamlessly when one set has scrolled
-        if (container.scrollLeft >= oneSetWidth) {
+        if (container.scrollLeft >= oneSetWidth * 2) {
           container.scrollLeft -= oneSetWidth;
+        } else if (container.scrollLeft <= 0) {
+          container.scrollLeft += oneSetWidth;
         }
       }
-
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    // Start auto-scroll
-    animationFrameId = requestAnimationFrame(autoScroll);
-
-    // Pause on hover
-    const handleMouseEnter = () => {
-      cancelAnimationFrame(animationFrameId);
+    const handleMouseDown = (e: MouseEvent) => {
+      isDragging = true;
+      isPaused = true;
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      container.style.cursor = 'grabbing';
     };
 
-    const handleMouseLeave = () => {
-      animationFrameId = requestAnimationFrame(autoScroll);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      let targetScroll = scrollLeft - walk;
+
+      if (targetScroll >= oneSetWidth * 2) targetScroll -= oneSetWidth;
+      if (targetScroll <= 0) targetScroll += oneSetWidth;
+
+      container.scrollLeft = targetScroll;
     };
 
+    const handleMouseUp = () => {
+      isDragging = false;
+      isPaused = false;
+      container.style.cursor = 'grab';
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      isDragging = true;
+      isPaused = true;
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      let targetScroll = scrollLeft - walk;
+
+      if (targetScroll >= oneSetWidth * 2) targetScroll -= oneSetWidth;
+      if (targetScroll <= 0) targetScroll += oneSetWidth;
+
+      container.scrollLeft = targetScroll;
+    };
+
+    const handleMouseEnter = () => { isPaused = true; container.style.cursor = 'grab'; };
+    const handleMouseLeave = () => { if (!isDragging) isPaused = false; container.style.cursor = 'default'; };
+
+    // Register events
+    container.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+    container.addEventListener('touchstart', handleTouchStart);
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleMouseUp);
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);
 
-    // Cleanup
+    // Initial start
+    animationFrameId = requestAnimationFrame(autoScroll);
+
     return () => {
       cancelAnimationFrame(animationFrameId);
+      container.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleMouseUp);
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
   return (
-    <section className="py-20 md:py-32 px-4 overflow-hidden bg-white">
+    <section className="pt-20 md:pt-32 pb-0 overflow-hidden bg-white">
       <motion.div
-        className="max-w-7xl mx-auto"
+        className="w-full"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -155,9 +224,8 @@ export function Testimonials() {
         {/* Testimonial Cards - Auto-scrolling */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto pt-16 pb-24 scrollbar-hide"
+          className="w-full flex gap-6 overflow-x-hidden pt-16 pb-24 select-none"
           style={{
-            scrollBehavior: 'auto',
             WebkitOverflowScrolling: 'touch',
           }}
         >
@@ -171,7 +239,7 @@ export function Testimonials() {
               transition={{ duration: 0.6, delay: (index % testimonials.length) * 0.05 }}
               style={{ rotate: `${testimonial.rotation}deg` }}
             >
-              <div className="bg-[#f7f7f7] rounded-xl p-5 md:p-6 w-64 h-96 relative overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:scale-105">
+              <div className="bg-[#f7f7f7] rounded-[2.5rem] p-5 md:p-6 w-64 h-96 relative overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:scale-105">
                 {/* Name and Role */}
                 <div className="text-left mb-3 md:mb-4">
                   <h3 className="font-['Red_Hat_Display'] font-semibold text-base md:text-lg text-black">

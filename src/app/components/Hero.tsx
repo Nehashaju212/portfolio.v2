@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
-import imgBall from "../../assets/ball.png";
-import imgCam from "../../assets/cam.png";
+import imgBall from "../../assets/tape.png";
 import imgCap from "../../assets/cap.png";
-import imgCase from "../../assets/case.png";
-import imgCd from "../../assets/cd.png";
-import imgFilm from "../../assets/film.png";
-import imgPaint from "../../assets/paint.png";
+import imgCase from "../../assets/watermelon.png";
+import imgCd from "../../assets/cddd.png";
+import imgFilm from "../../assets/shake.png";
+import imgPaint from "../../assets/painttt.png";
 import imgSmile from "../../assets/smile.png";
+import imgCake from "../../assets/yumm.png";
 
 // Using different Figma assets for a more varied look
 const floatingImages = [
@@ -17,14 +17,16 @@ const floatingImages = [
     top: '15%',
     rotation: -5,
     delay: 0,
+    sizeClasses: 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32'
   },
   {
     id: 2,
-    src: imgCam,
+    src: imgCase,
     left: '35%',
     top: '10%',
     rotation: 8,
     delay: 0.2,
+    sizeClasses: 'w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-56 lg:h-56'
   },
   {
     id: 3,
@@ -33,22 +35,25 @@ const floatingImages = [
     top: '11%',
     rotation: -3,
     delay: 0.4,
+    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
   {
     id: 4,
-    src: imgCase,
+    src: imgCd,
     left: '79%',
     top: '30%',
-    rotation: 5,
+    rotation: -12,
     delay: 0.6,
+    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
   {
     id: 5,
-    src: imgCd,
+    src: imgCake,
     left: '73%',
     top: '55%',
     rotation: -7,
     delay: 0.8,
+    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
   {
     id: 6,
@@ -57,14 +62,16 @@ const floatingImages = [
     top: '62%',
     rotation: 4,
     delay: 1.0,
+    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
   {
     id: 7,
     src: imgPaint,
     left: '8%',
     top: '42%',
-    rotation: -2,
+    rotation: -50,
     delay: 1.2,
+    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
   {
     id: 8,
@@ -73,6 +80,7 @@ const floatingImages = [
     top: '72%',
     rotation: 6,
     delay: 1.4,
+    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
 ];
 
@@ -83,7 +91,7 @@ export function Hero() {
       {floatingImages.map((item) => (
         <motion.div
           key={item.id}
-          className="absolute w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
+          className={`absolute ${item.sizeClasses}`}
           style={{
             left: item.left,
             top: item.top,
