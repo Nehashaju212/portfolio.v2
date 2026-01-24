@@ -18,7 +18,6 @@ import img13 from "../../assets/13.png";
 import img14 from "../../assets/14.jpg";
 import img15 from "../../assets/15.jpeg";
 import imgCap from "../../assets/cap.png";
-import imgThambu from "../../assets/thambu.png";
 import imgFilm from "../../assets/film.png";
 import imgPaint from "../../assets/paint.png";
 import imgCam from "../../assets/cam.png";
@@ -244,7 +243,7 @@ export function About() {
                 <div className="flex-1 flex justify-center md:justify-end">
                   <div className="bg-white p-3 shadow-lg rotate-3 w-64">
                     <div className="h-64 overflow-hidden mb-4 bg-gray-100">
-                      <img src={imgThambu} alt="Internship" className="w-full h-full object-cover" loading="lazy" />
+                      <img src={img5} alt="Internship" className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   </div>
                 </div>
