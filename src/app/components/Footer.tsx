@@ -11,7 +11,7 @@ const PROJECTS = {
   PHARMA_ASSIST: "/project/project-6",
 };
 
-const buttonVariants = {
+const buttonVariants: any = {
   initial: { scale: 1 },
   hover: { scale: 1.08, transition: { type: "spring", stiffness: 400, damping: 10 } },
   tap: { scale: 0.95 },
@@ -56,7 +56,9 @@ export function Footer() {
 
         <div className="flex justify-center mb-16">
           <motion.a
-            href="mailto:nehashaju212@gmail.com"
+            href="https://www.linkedin.com/in/nehashaju212"
+            target="_blank"
+            rel="noreferrer"
             variants={buttonVariants}
             initial="initial"
             animate="pulse"
@@ -73,15 +75,6 @@ export function Footer() {
             />
             <span className="relative flex items-center gap-3">
               let's talk.
-              <motion.span
-                className="inline-block"
-                variants={{
-                  hover: { x: 5 },
-                  initial: { x: 0 }
-                }}
-              >
-                <Mail className="w-6 h-6" />
-              </motion.span>
             </span>
           </motion.a>
         </div>
@@ -169,7 +162,7 @@ export function Footer() {
 
           {/* Socials */}
           <div className="flex gap-4 shrink-0">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/nehashaju212" target="_blank" rel="noreferrer">
               <Linkedin className="w-10 h-10" strokeWidth={1.5} />
             </a>
             <a href="mailto:nehashaju212@gmail.com">
