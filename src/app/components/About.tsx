@@ -71,7 +71,7 @@ export function About() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="about" className="bg-white py-24 overflow-hidden select-none">
+    <section id="about" className="bg-white pt-24 pb-0 overflow-hidden select-none">
       {/* HEADER SECTION */}
       <div className="max-w-4xl mx-auto text-center px-6 mb-20">
         <h2 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-black">

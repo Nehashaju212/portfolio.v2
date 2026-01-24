@@ -201,7 +201,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="pt-20 md:pt-32 pb-0 overflow-hidden bg-white">
+    <section className="pt-12 md:pt-20 pb-0 overflow-hidden bg-white">
       <motion.div
         className="w-full"
         initial={{ opacity: 0, y: 30 }}
@@ -239,7 +239,7 @@ export function Testimonials() {
               transition={{ duration: 0.6, delay: (index % testimonials.length) * 0.05 }}
               style={{ rotate: `${testimonial.rotation}deg` }}
             >
-              <div className="bg-[#f7f7f7] rounded-[2.5rem] p-5 md:p-6 w-64 h-96 relative overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:scale-105">
+              <div className="bg-[#f7f7f7] rounded-[12px] p-5 md:p-6 w-64 h-96 relative overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:scale-105">
                 {/* Name and Role */}
                 <div className="text-left mb-3 md:mb-4">
                   <h3 className="font-['Red_Hat_Display'] font-semibold text-base md:text-lg text-black">

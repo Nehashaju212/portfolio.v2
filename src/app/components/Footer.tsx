@@ -131,7 +131,7 @@ export function Footer() {
               whileHover={{ scale: 1.05, zIndex: 50 }}
             >
               <div
-                className="w-[220px] h-[185px] rounded-[2rem] overflow-hidden"
+                className="w-[220px] h-[185px] rounded-[12px] overflow-hidden"
                 style={{ transform: "rotate(-12deg)" }}
               >
                 <img src={thinkImage} className="w-full h-full object-cover" />
@@ -145,7 +145,7 @@ export function Footer() {
               whileHover={{ scale: 1.05, zIndex: 50 }}
             >
               <div
-                className="w-[220px] h-[260px] rounded-[2rem] overflow-hidden"
+                className="w-[220px] h-[260px] rounded-[12px] overflow-hidden"
                 style={{ transform: "rotate(-5deg)" }}
               >
                 <img src={caseStudyImage} className="w-full h-full object-cover" />
@@ -159,7 +159,7 @@ export function Footer() {
               whileHover={{ scale: 1.05, zIndex: 50 }}
             >
               <div
-                className="w-[245px] h-[160px] rounded-[2rem] overflow-hidden"
+                className="w-[245px] h-[160px] rounded-[12px] overflow-hidden"
                 style={{ transform: "rotate(13deg)" }}
               >
                 <img src={pharmassisttImage} className="w-full h-full object-cover" />

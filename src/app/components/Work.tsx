@@ -42,7 +42,7 @@ export function Work() {
   };
 
   return (
-    <section id="work" className="py-20 md:py-32 px-4">
+    <section id="work" className="pt-10 md:pt-16 pb-12 md:pb-20 px-4">
       <motion.div
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
@@ -74,7 +74,7 @@ export function Work() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Link to={`/project/${project.id}`}>
-                <div className="bg-[#d6d6d6] rounded-xl h-64 mb-4 overflow-hidden transition-transform group-hover:scale-105 cursor-pointer relative">
+                <div className="bg-[#d6d6d6] rounded-[12px] h-64 mb-4 overflow-hidden transition-transform group-hover:scale-105 cursor-pointer relative">
                   {(project as any).image ? (
                     <img
                       src={(project as any).image}
