@@ -1,5 +1,5 @@
 import { motion, useAnimationFrame, useMotionValue, useSpring } from 'motion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Your imports
 import img1 from "../../assets/1.png";
@@ -51,11 +51,20 @@ export function About() {
     mass: 1.5
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // --- DESIGN PRECISION SETTINGS ---
   const perspectiveValue = "600px";
-  // Adjusted radius for 15 items to maintain comfortable spacing
-  const radius = -800;
-  const cardWidth = 300;
+  const radius = isMobile ? -450 : -800;
+  const cardWidth = isMobile ? 180 : 300;
+  const cardHeight = isMobile ? "240px" : "400px";
   const angleStep = 360 / images.length;
 
   useAnimationFrame((t, delta) => {
@@ -87,7 +96,7 @@ export function About() {
 
       {/* 3D SCENE */}
       <div
-        className="relative h-[500px] w-full flex items-center justify-center cursor-grab active:cursor-grabbing -mt-32"
+        className="relative h-[280px] md:h-[500px] w-full flex items-center justify-center cursor-grab active:cursor-grabbing mt-8 md:-mt-32"
         style={{ perspective: perspectiveValue }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -113,7 +122,7 @@ export function About() {
                 className="absolute"
                 style={{
                   width: `${cardWidth}px`,
-                  height: "400px",
+                  height: cardHeight,
                   // No padding = edges are determined by cardWidth
                   transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
                   backfaceVisibility: "hidden",
@@ -134,7 +143,7 @@ export function About() {
       </div>
 
       {/* SEE MORE BUTTON */}
-      <div className="flex flex-col items-center -mt-32 relative z-10 space-y-12">
+      <div className="flex flex-col items-center mt-12 md:-mt-32 relative z-10 space-y-12">
         {!isExpanded && (
           <motion.button
             variants={buttonVariants}
