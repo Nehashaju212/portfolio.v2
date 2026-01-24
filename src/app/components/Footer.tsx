@@ -174,6 +174,40 @@ export function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Mobile layout */}
+        <div className="lg:hidden flex flex-col items-center gap-12 pb-12">
+          {/* Images preview for mobile - simpler stack */}
+          <div className="flex items-center justify-center -space-x-12 px-4">
+            <Link to={PROJECTS.THINK_AI} className="z-10 rotate-[-10deg]">
+              <div className="w-32 h-28 rounded-lg overflow-hidden shadow-md">
+                <img src={thinkImage} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </Link>
+            <Link to={PROJECTS.CASE_STUDY} className="z-20 rotate-[-5deg]">
+              <div className="w-32 h-36 rounded-lg overflow-hidden shadow-lg border-2 border-white">
+                <img src={caseStudyImage} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </Link>
+            <Link to={PROJECTS.PHARMA_ASSIST} className="z-30 rotate-[10deg]">
+              <div className="w-32 h-24 rounded-lg overflow-hidden shadow-md">
+                <img src={pharmassisttImage} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </Link>
+          </div>
+
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex gap-8">
+              <a href="https://www.linkedin.com/in/nehashaju212" target="_blank" rel="noreferrer">
+                <Linkedin className="w-8 h-8 opacity-70" strokeWidth={1.5} />
+              </a>
+              <a href="mailto:nehashaju212@gmail.com">
+                <Mail className="w-8 h-8 opacity-70" strokeWidth={1.5} />
+              </a>
+            </div>
+            <p className="text-xl opacity-60">crafted by neha&lt;3</p>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

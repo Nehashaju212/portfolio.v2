@@ -17,7 +17,7 @@ const floatingImages = [
     top: '15%',
     rotation: -5,
     delay: 0,
-    sizeClasses: 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32'
+    sizeClasses: 'w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32'
   },
   {
     id: 2,
@@ -77,10 +77,10 @@ const floatingImages = [
     id: 8,
     src: imgSmile,
     left: '48%',
-    top: '72%',
+    top: '80%',
     rotation: 6,
     delay: 1.4,
-    sizeClasses: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
+    sizeClasses: 'w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
   },
 ];
 
