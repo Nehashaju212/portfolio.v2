@@ -134,6 +134,7 @@ export function About() {
                     src={src}
                     alt=""
                     className="w-full h-full object-cover pointer-events-none"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -199,7 +200,7 @@ export function About() {
 
                 {/* Floating Cap Image */}
                 <div className="flex-1 flex justify-center md:justify-end">
-                  <img src={imgCap} alt="Graduation Cap" className="w-48 h-48 object-contain drop-shadow-xl" />
+                  <img src={imgCap} alt="Graduation Cap" className="w-48 h-48 object-contain drop-shadow-xl" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -243,7 +244,7 @@ export function About() {
                 <div className="flex-1 flex justify-center md:justify-end">
                   <div className="bg-white p-3 shadow-lg rotate-3 w-64">
                     <div className="h-64 overflow-hidden mb-4 bg-gray-100">
-                      <img src={imgThambu} alt="Internship" className="w-full h-full object-cover" />
+                      <img src={imgThambu} alt="Internship" className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   </div>
                 </div>

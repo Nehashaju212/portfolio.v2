@@ -199,6 +199,7 @@ export function ProjectDetail() {
                 src={project.image}
                 alt={`${project.title} Hero`}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             ) : (
               <p className="text-gray-400 text-xl font-medium">Project Image</p>

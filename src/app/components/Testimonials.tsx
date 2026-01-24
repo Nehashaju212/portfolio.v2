@@ -272,6 +272,7 @@ export function Testimonials() {
                       transform: `scale(${testimonial.scale}) translate(${testimonial.x}%, ${testimonial.y}%)`,
                     }}
                     draggable="false"
+                    loading="lazy"
                   />
                 </div>
               </div>

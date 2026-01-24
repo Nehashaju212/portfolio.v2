@@ -132,6 +132,7 @@ export function Hero() {
                 src={item.src}
                 alt=""
                 className="w-full h-full object-contain drop-shadow-2xl"
+                loading="lazy"
               />
             </div>
           </motion.div>
