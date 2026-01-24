@@ -1,4 +1,4 @@
-import { motion, useAnimationFrame, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useAnimationFrame, useMotionValue, useSpring } from 'motion/react';
 import { useState } from 'react';
 
 // Your imports

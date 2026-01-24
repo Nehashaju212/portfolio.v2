@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Mail, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import thinkImage from "../../assets/think ai.png";
 import caseStudyImage from "../../assets/casestudy.jpeg";
@@ -118,46 +119,49 @@ export function Footer() {
           {/* Images */}
           <div className="flex items-center pr-[70px] shrink-0 -mb-32">
             {/* Image 1: Think AI */}
-            <motion.a
-              href={PROJECTS.THINK_AI}
-              className="-mr-[70px] relative z-10"
+            <motion.div
               whileHover={{ scale: 1.05, zIndex: 50 }}
+              className="-mr-[70px] relative z-10"
             >
-              <div
-                className="w-[220px] h-[185px] rounded-[12px] overflow-hidden"
-                style={{ transform: "rotate(-12deg)" }}
-              >
-                <img src={thinkImage} className="w-full h-full object-cover" />
-              </div>
-            </motion.a>
+              <Link to={PROJECTS.THINK_AI}>
+                <div
+                  className="w-[220px] h-[185px] rounded-[12px] overflow-hidden"
+                  style={{ transform: "rotate(-12deg)" }}
+                >
+                  <img src={thinkImage} className="w-full h-full object-cover" />
+                </div>
+              </Link>
+            </motion.div>
 
             {/* Image 2: Case Study */}
-            <motion.a
-              href={PROJECTS.CASE_STUDY}
-              className="-mr-[70px] relative z-20"
+            <motion.div
               whileHover={{ scale: 1.05, zIndex: 50 }}
+              className="-mr-[70px] relative z-20"
             >
-              <div
-                className="w-[220px] h-[260px] rounded-[12px] overflow-hidden"
-                style={{ transform: "rotate(-5deg)" }}
-              >
-                <img src={caseStudyImage} className="w-full h-full object-cover" />
-              </div>
-            </motion.a>
+              <Link to={PROJECTS.CASE_STUDY}>
+                <div
+                  className="w-[220px] h-[260px] rounded-[12px] overflow-hidden"
+                  style={{ transform: "rotate(-5deg)" }}
+                >
+                  <img src={caseStudyImage} className="w-full h-full object-cover" />
+                </div>
+              </Link>
+            </motion.div>
 
             {/* Image 3: PharmaAssist */}
-            <motion.a
-              href={PROJECTS.PHARMA_ASSIST}
-              className="relative z-30"
+            <motion.div
               whileHover={{ scale: 1.05, zIndex: 50 }}
+              className="relative z-30"
             >
-              <div
-                className="w-[245px] h-[160px] rounded-[12px] overflow-hidden"
-                style={{ transform: "rotate(13deg)" }}
-              >
-                <img src={pharmassisttImage} className="w-full h-full object-cover" />
-              </div>
-            </motion.a>
+              <Link to={PROJECTS.PHARMA_ASSIST}>
+                <div
+                  className="w-[245px] h-[160px] rounded-[12px] overflow-hidden"
+                  style={{ transform: "rotate(13deg)" }}
+                >
+                  <img src={pharmassisttImage} className="w-full h-full object-cover" />
+                </div>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Socials */}
