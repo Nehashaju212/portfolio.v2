@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
-import imgBall from "../../assets/tape.png";
-import imgCap from "../../assets/cap.png";
-import imgCase from "../../assets/watermelon.png";
-import imgCd from "../../assets/cddd.png";
-import imgFilm from "../../assets/shake.png";
-import imgPaint from "../../assets/painttt.png";
-import imgSmile from "../../assets/smile.png";
-import imgCake from "../../assets/yumm.png";
+import imgBall from "../../assets/tape.webp";
+import imgCap from "../../assets/cap.webp";
+import imgCase from "../../assets/watermelon.webp";
+import imgCd from "../../assets/cddd.webp";
+import imgFilm from "../../assets/shake.webp";
+import imgPaint from "../../assets/painttt.webp";
+import imgSmile from "../../assets/smile.webp";
+import imgCake from "../../assets/yumm.webp";
 
 // Using different Figma assets for a more varied look
 const floatingImages = [

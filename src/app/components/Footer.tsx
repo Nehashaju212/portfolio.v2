@@ -1,37 +1,34 @@
-import { motion } from "motion/react";
-import { Mail, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion } from 'motion/react'
+import { Mail, Linkedin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
-import thinkImage from "../../assets/think-ai.png";
-import caseStudyImage from "../../assets/case-study.jpeg";
-import pharmassisttImage from "../../assets/pharmassistt.png";
+import thinkImage from '../../assets/think-ai.webp'
+import caseStudyImage from '../../assets/case-study.webp'
+import pharmassisttImage from '../../assets/pharmassistt.webp'
 
 const PROJECTS = {
-  THINK_AI: "/project/think-ai",
-  CASE_STUDY: "/project/case-studies",
-  PHARMA_ASSIST: "/project/pharma-assist",
-};
+  THINK_AI: '/project/think-ai',
+  CASE_STUDY: '/project/case-studies',
+  PHARMA_ASSIST: '/project/pharma-assist',
+}
 
 const buttonVariants: any = {
   initial: { scale: 1 },
-  hover: { scale: 1.08, transition: { type: "spring", stiffness: 400, damping: 10 } },
+  hover: { scale: 1.08, transition: { type: 'spring', stiffness: 400, damping: 10 } },
   tap: { scale: 0.95 },
   pulse: {
     scale: [1, 1.03, 1],
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
+      ease: 'easeInOut',
+    },
+  },
+}
 
 export function Footer() {
   return (
-    <section
-      id="contact"
-      className="pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden"
-    >
+    <section id="contact" className="pt-10 md:pt-16 pb-0 px-4 bg-white overflow-hidden">
       {/* Header */}
       <motion.div
         className="max-w-2xl mx-auto"
@@ -42,16 +39,11 @@ export function Footer() {
       >
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-black">
-            <span className="font-['Red_Hat_Display'] font-medium">
-              connect with{" "}
-            </span>
-            <span className="font-['Playfair_Display'] italic font-medium">
-              me.
-            </span>
+            <span className="font-['Red_Hat_Display'] font-medium">connect with </span>
+            <span className="font-['Playfair_Display'] italic font-medium">me.</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-['Red_Hat_Display'] font-medium">
-            Open to collaborations, projects, and conversations that lead to
-            meaningful work.
+            Open to collaborations, projects, and conversations that lead to meaningful work.
           </p>
         </div>
 
@@ -67,16 +59,12 @@ export function Footer() {
             whileTap="tap"
             className="group relative px-10 py-5 rounded-full text-white font-['Red_Hat_Display'] font-bold text-2xl overflow-hidden shadow-xl"
             style={{
-              background: "linear-gradient(270deg, #b267f1, #db7dd2, #fa8cba, #fba045, #b267f1)",
-              backgroundSize: "400% 400%",
+              background: 'linear-gradient(270deg, #b267f1, #db7dd2, #fa8cba, #fba045, #b267f1)',
+              backgroundSize: '400% 400%',
             }}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine"
-            />
-            <span className="relative flex items-center gap-3">
-              let's talk.
-            </span>
+            <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine" />
+            <span className="relative flex items-center gap-3">let's talk.</span>
           </motion.a>
         </div>
 
@@ -116,52 +104,49 @@ export function Footer() {
         <div className="hidden lg:flex items-center justify-center gap-8">
           <p className="text-2xl shrink-0">crafted by neha&lt;3</p>
 
-          {/* Images */}
+          {/* Images Container */}
           <div className="flex items-center pr-[70px] shrink-0 -mb-32">
-            {/* Image 1: Think AI */}
-            <motion.div
-              whileHover={{ scale: 1.05, zIndex: 50 }}
-              className="-mr-[70px] relative z-10"
-            >
-              <Link to={PROJECTS.THINK_AI}>
-                <div
-                  className="w-[220px] h-[185px] rounded-[12px] overflow-hidden"
-                  style={{ transform: "rotate(-12deg)" }}
-                >
-                  <img src={thinkImage} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </Link>
-            </motion.div>
+            {/* Image 1: Think AI (Tilt -12deg) */}
+            <div className="-mr-[70px] relative z-10" style={{ transform: 'rotate(-12deg)' }}>
+              <motion.div
+                whileHover={{ y: -50 }} // Moves "Up" relative to the -12deg tilt
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              >
+                <Link to={PROJECTS.THINK_AI}>
+                  <div className="w-[220px] h-[185px] rounded-[12px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+                    <img src={thinkImage} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
 
-            {/* Image 2: Case Study */}
-            <motion.div
-              whileHover={{ scale: 1.05, zIndex: 50 }}
-              className="-mr-[70px] relative z-20"
-            >
-              <Link to={PROJECTS.CASE_STUDY}>
-                <div
-                  className="w-[220px] h-[260px] rounded-[12px] overflow-hidden"
-                  style={{ transform: "rotate(-5deg)" }}
-                >
-                  <img src={caseStudyImage} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </Link>
-            </motion.div>
+            {/* Image 2: Case Study (Tilt -5deg) */}
+            <div className="-mr-[70px] relative z-20" style={{ transform: 'rotate(-5deg)' }}>
+              <motion.div
+                whileHover={{ y: -50 }} // Moves "Up" relative to the -5deg tilt
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              >
+                <Link to={PROJECTS.CASE_STUDY}>
+                  <div className="w-[220px] h-[260px] rounded-[12px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow border-2 border-white/10">
+                    <img src={caseStudyImage} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
 
-            {/* Image 3: PharmaAssist */}
-            <motion.div
-              whileHover={{ scale: 1.05, zIndex: 50 }}
-              className="relative z-30"
-            >
-              <Link to={PROJECTS.PHARMA_ASSIST}>
-                <div
-                  className="w-[245px] h-[160px] rounded-[12px] overflow-hidden"
-                  style={{ transform: "rotate(13deg)" }}
-                >
-                  <img src={pharmassisttImage} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </Link>
-            </motion.div>
+            {/* Image 3: PharmaAssist (Tilt 13deg) */}
+            <div className="relative z-30" style={{ transform: 'rotate(13deg)' }}>
+              <motion.div
+                whileHover={{ y: -50 }} // Moves "Up" relative to the 13deg tilt
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              >
+                <Link to={PROJECTS.PHARMA_ASSIST}>
+                  <div className="w-[245px] h-[160px] rounded-[12px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+                    <img src={pharmassisttImage} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
           </div>
 
           {/* Socials */}
@@ -210,5 +195,5 @@ export function Footer() {
         </div>
       </motion.div>
     </section>
-  );
+  )
 }

@@ -1,83 +1,83 @@
 // Deploy fix trigger
-import { motion, useAnimationFrame, useMotionValue, useSpring } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { motion, useAnimationFrame, useMotionValue, useSpring } from 'motion/react'
+import { useState, useEffect } from 'react'
 
 // Your imports
-import img1 from "../../assets/1.png";
-import img2 from "../../assets/2.png";
-import img3 from "../../assets/3.png";
-import img4 from "../../assets/4.png";
-import img5 from "../../assets/5.png";
-import img6 from "../../assets/6.png";
-import img7 from "../../assets/7.png";
-import img8 from "../../assets/8.png";
-import img9 from "../../assets/9.png";
-import img10 from "../../assets/10.png";
-import img11 from "../../assets/11.png";
-import img12 from "../../assets/12.png";
-import img13 from "../../assets/13.png";
-import img14 from "../../assets/14.jpg";
-import img15 from "../../assets/15.jpeg";
-import imgCap from "../../assets/cap.png";
-import imgFilm from "../../assets/film.png";
-import imgPaint from "../../assets/paint.png";
-import imgCam from "../../assets/cam.png";
+import img1 from '../../assets/1.webp'
+import img2 from '../../assets/2.webp'
+import img3 from '../../assets/3.webp'
+import img4 from '../../assets/4.webp'
+import img5 from '../../assets/5.webp'
+import img6 from '../../assets/6.webp'
+import img7 from '../../assets/7.webp'
+import img8 from '../../assets/8.webp'
+import img9 from '../../assets/9.webp'
+import img10 from '../../assets/10.webp'
+import img11 from '../../assets/11.webp'
+import img12 from '../../assets/12.webp'
+import img13 from '../../assets/13.webp'
+import img14 from '../../assets/14.webp'
+import img15 from '../../assets/15.webp'
+import imgCap from '../../assets/cap.webp'
+import imgFilm from '../../assets/film.webp'
+import imgPaint from '../../assets/paint.webp'
+import imgCam from '../../assets/cam.webp'
 
 // Creating a set of 15 unique images from 1 to 15
-const baseImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15];
-const images = baseImages;
+const baseImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
+const images = baseImages
 
 const buttonVariants: any = {
   initial: { scale: 1 },
-  hover: { scale: 1.08, transition: { type: "spring", stiffness: 400, damping: 10 } },
+  hover: { scale: 1.08, transition: { type: 'spring', stiffness: 400, damping: 10 } },
   tap: { scale: 0.95 },
   pulse: {
     scale: [1, 1.03, 1],
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
+      ease: 'easeInOut',
+    },
+  },
+}
 
 export function About() {
-  const [isPaused, setIsPaused] = useState(false);
-  const rotation = useMotionValue(0);
+  const [isPaused, setIsPaused] = useState(false)
+  const rotation = useMotionValue(0)
 
   const smoothRotation = useSpring(rotation, {
     damping: 30,
     stiffness: 50,
-    mass: 1.5
-  });
+    mass: 1.5,
+  })
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   // --- DESIGN PRECISION SETTINGS ---
-  const perspectiveValue = "600px";
-  const radius = isMobile ? -450 : -800;
-  const cardWidth = isMobile ? 180 : 300;
-  const cardHeight = isMobile ? "240px" : "400px";
-  const angleStep = 360 / images.length;
+  const perspectiveValue = '600px'
+  const radius = isMobile ? -450 : -800
+  const cardWidth = isMobile ? 180 : 300
+  const cardHeight = isMobile ? '240px' : '400px'
+  const angleStep = 360 / images.length
 
   useAnimationFrame((t, delta) => {
     if (!isPaused) {
-      rotation.set(rotation.get() + delta * 0.007);
+      rotation.set(rotation.get() + delta * 0.007)
     }
-  });
+  })
 
-  const onDrag = (e, info) => {
-    rotation.set(rotation.get() + info.delta.x * 0.15);
-  };
+  const onDrag = (e: MouseEvent, info: { delta: { x: number } }) => {
+    rotation.set(rotation.get() + info.delta.x * 0.15)
+  }
 
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
     <section id="about" className="bg-white pt-24 pb-0 overflow-hidden select-none">
@@ -88,9 +88,9 @@ export function About() {
           <span className="font-['Playfair_Display'] italic font-medium">me.</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto font-['Red_Hat_Display'] font-medium">
-          I’m a computer science student learning through hands-on projects, experimenting with code,
-          and improving my design sense along the way. Alongside this, I’m part of student communities
-          and volunteering activities, where I enjoy collaborating and being involved.
+          I’m a computer science student learning through hands-on projects, experimenting with code, and improving my design sense along
+          the way. Alongside this, I’m part of student communities and volunteering activities, where I enjoy collaborating and being
+          involved.
         </p>
       </div>
 
@@ -109,12 +109,12 @@ export function About() {
           onDrag={onDrag}
           style={{
             rotateY: smoothRotation,
-            transformStyle: "preserve-3d",
+            transformStyle: 'preserve-3d',
           }}
           className="relative flex items-center justify-center"
         >
           {images.map((src, index) => {
-            const angle = index * angleStep;
+            const angle = index * angleStep
 
             return (
               <div
@@ -125,20 +125,15 @@ export function About() {
                   height: cardHeight,
                   // No padding = edges are determined by cardWidth
                   transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
-                  backfaceVisibility: "hidden",
+                  backfaceVisibility: 'hidden',
                 }}
               >
                 {/* 12px corners, No borders, Hairline gap via margin */}
                 <div className="mx-[2px] h-full rounded-[12px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] bg-gray-50">
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full h-full object-cover pointer-events-none"
-                    loading="lazy"
-                  />
+                  <img src={src} alt="" className="w-full h-full object-cover pointer-events-none" loading="lazy" />
                 </div>
               </div>
-            );
+            )
           })}
         </motion.div>
       </div>
@@ -167,11 +162,10 @@ export function About() {
         <motion.div
           initial={false}
           animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="overflow-hidden w-full max-w-5xl px-6"
         >
           <div className="flex flex-col gap-24 pt-16 pb-16">
-
             {/* 1. Academic Journey */}
             <div className="relative">
               <h3 className="text-4xl md:text-5xl text-center mb-12 text-black">
@@ -217,9 +211,7 @@ export function About() {
                 <div className="space-y-8 flex-1">
                   <div>
                     <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">UI UX Intern</h4>
-                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                      Koncepts Lab (Onsite)
-                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">Koncepts Lab (Onsite)</p>
                     <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">November 2025 - present</p>
                   </div>
 
@@ -233,9 +225,7 @@ export function About() {
 
                   <div>
                     <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Web development intern</h4>
-                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                      Radars Technology(onsite)
-                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">Radars Technology(onsite)</p>
                     <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">June 2024 - July 2024</p>
                   </div>
                 </div>
@@ -262,7 +252,7 @@ export function About() {
                 {/* Floating Images */}
                 <motion.img
                   animate={{ y: [0, -15, 0], rotate: -15 }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   src={imgFilm}
                   alt=""
                   className="absolute -left-16 top-0 w-24 h-24 object-contain opacity-100 z-0 hidden md:block"
@@ -270,7 +260,7 @@ export function About() {
 
                 <motion.img
                   animate={{ y: [0, -20, 0], rotate: 15 }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
                   src={imgPaint}
                   alt=""
                   className="absolute -right-20 top-1/3 w-28 h-28 object-contain opacity-100 z-0 hidden md:block"
@@ -278,7 +268,7 @@ export function About() {
 
                 <motion.img
                   animate={{ y: [0, -15, 0], rotate: -10 }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                   src={imgCam}
                   alt=""
                   className="absolute -left-10 bottom-10 w-32 h-32 object-contain opacity-100 z-0 hidden md:block"
@@ -287,39 +277,30 @@ export function About() {
                 <div className="space-y-8 relative z-10 text-left md:text-center">
                   <div>
                     <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Senior Mentor</h4>
-                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                      IEDC Sahrdaya
-                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">IEDC Sahrdaya</p>
                     <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">june 2025 - present</p>
                   </div>
 
                   <div>
                     <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Women in Computing</h4>
-                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                      IEEE Sahrdaya
-                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">IEEE Sahrdaya</p>
                     <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">november 2023 - november 2024</p>
                   </div>
 
                   <div>
                     <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">Outreach Lead</h4>
-                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                      TinkerHub SCET
-                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">TinkerHub SCET</p>
                     <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">july 2024 - july 2025</p>
                   </div>
 
                   <div>
                     <h4 className="font-['Red_Hat_Display'] font-bold text-xl text-black">poster designer</h4>
-                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">
-                      IEDC Sahrdaya
-                    </p>
+                    <p className="font-['Red_Hat_Display'] text-gray-700 text-lg md:text-xl font-medium mt-1">IEDC Sahrdaya</p>
                     <p className="font-['Red_Hat_Display'] text-gray-500 text-sm mt-1">july 2024 - jpresent</p>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* Bottom "See Less" Button */}
@@ -354,5 +335,5 @@ export function About() {
         `}</style>
       </div>
     </section>
-  );
+  )
 }

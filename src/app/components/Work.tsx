@@ -1,14 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import caseStudyImage from '@/assets/case-study.jpeg';
-import signImage from '@/assets/sign.png';
-import thinkImage from '@/assets/think-ai.png';
-import pharmassisttImage from '@/assets/pharmassistt.png';
-import inflowImage from '@/assets/inflow.png';
+import caseStudyImage from '@/assets/case-study.webp';
+import signImage from '@/assets/sign.webp';
+import thinkImage from '@/assets/think-ai.webp';
+import pharmassisttImage from '@/assets/pharmassistt.webp';
+import inflowImage from '@/assets/inflow.webp';
 
-import virtualcalcImage from '@/assets/virtualcalc.png';
-import posterImage from '@/assets/posters.png';
+import virtualcalcImage from '@/assets/virtualcalc.webp';
+import posterImage from '@/assets/posters.webp';
 
 const buttonVariants: any = {
   initial: { scale: 1 },
